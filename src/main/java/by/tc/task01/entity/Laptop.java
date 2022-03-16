@@ -5,21 +5,12 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 import java.util.Locale;
 
 public class Laptop implements Appliance {
-    private  double batteryCapacity;
-    private  String os;
-    private  int memoryRom;
-    private  int systemMemory;
-    private  double cpu;
-    private  double displayInches;
-
-    public Laptop(double batteryCapacity, String os, int memoryRom, int systemMemory, double cpu, double displayInches) {
-        this.batteryCapacity = batteryCapacity;
-        this.os = os;
-        this.memoryRom = memoryRom;
-        this.systemMemory = systemMemory;
-        this.cpu = cpu;
-        this.displayInches = displayInches;
-    }
+    private double batteryCapacity;
+    private String os;
+    private int memoryRom;
+    private int systemMemory;
+    private double cpu;
+    private double displayInches;
 
     public void setBatteryCapacity(double batteryCapacity) {
         this.batteryCapacity = batteryCapacity;
@@ -43,9 +34,6 @@ public class Laptop implements Appliance {
 
     public void setDisplayInches(double displayInches) {
         this.displayInches = displayInches;
-    }
-
-    public Laptop() {
     }
 
     @Override

@@ -5,10 +5,10 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 import java.util.Locale;
 
 public class Speakers implements Appliance {
-    private  int powerConsumption;
-    private  int numberOfSpeakers;
-    private  String frequencyRange;
-    private  double cordLength;
+    private int powerConsumption;
+    private int numberOfSpeakers;
+    private String frequencyRange;
+    private double cordLength;
 
     public void setPowerConsumption(int powerConsumption) {
         this.powerConsumption = powerConsumption;
@@ -16,9 +16,6 @@ public class Speakers implements Appliance {
 
     public void setNumberOfSpeakers(int numberOfSpeakers) {
         this.numberOfSpeakers = numberOfSpeakers;
-    }
-
-    public Speakers() {
     }
 
     public void setFrequencyRange(String frequencyRange) {
@@ -29,16 +26,9 @@ public class Speakers implements Appliance {
         this.cordLength = cordLength;
     }
 
-    public Speakers(int powerConsumption, int numberOfSpeakers, String frequencyRange, double cordLength) {
-        this.powerConsumption = powerConsumption;
-        this.numberOfSpeakers = numberOfSpeakers;
-        this.frequencyRange = frequencyRange;
-        this.cordLength = cordLength;
-    }
-
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH,"%s : [%s=%d, %s=%s, %s=%s, %s=%.1f]",
+        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.Speakers.POWER_CONSUMPTION, powerConsumption,
                 SearchCriteria.Speakers.NUMBER_OF_SPEAKERS, numberOfSpeakers,

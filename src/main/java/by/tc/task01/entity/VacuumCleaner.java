@@ -5,11 +5,12 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 import java.util.Locale;
 
 public class VacuumCleaner implements Appliance {
-    private  int powerConsumption;
-    private  String filterType;
-    private  String bagType;
-    private  String wandType;
-    private  int motorSpeedRegulation;
+    private int powerConsumption;
+    private String filterType;
+    private String bagType;
+    private String wandType;
+    private int motorSpeedRegulation;
+    private int cleaningWidth;
 
     public void setPowerConsumption(int powerConsumption) {
         this.powerConsumption = powerConsumption;
@@ -17,9 +18,6 @@ public class VacuumCleaner implements Appliance {
 
     public void setFilterType(String filterType) {
         this.filterType = filterType;
-    }
-
-    public VacuumCleaner() {
     }
 
     public void setBagType(String bagType) {
@@ -38,20 +36,9 @@ public class VacuumCleaner implements Appliance {
         this.cleaningWidth = cleaningWidth;
     }
 
-    private  int cleaningWidth;
-
-    public VacuumCleaner(int powerConsumption, String filterType, String bagType, String wandType, int motorSpeedRegulation, int cleaningWidth) {
-        this.powerConsumption = powerConsumption;
-        this.filterType = filterType;
-        this.bagType = bagType;
-        this.wandType = wandType;
-        this.motorSpeedRegulation = motorSpeedRegulation;
-        this.cleaningWidth = cleaningWidth;
-    }
-
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH,"%s : [%s=%d, %s=%s, %s=%s, %s=%s, %s=%d, %s=%d]",
+        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%s, %s=%s, %s=%d, %s=%d]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.VacuumCleaner.POWER_CONSUMPTION, powerConsumption,
                 SearchCriteria.VacuumCleaner.FILTER_TYPE, filterType,

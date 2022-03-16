@@ -2,7 +2,7 @@ package by.tc.task01.dao.impl;
 
 import by.tc.task01.entity.Oven;
 
- class OvenBuilder extends ApplianceBuilder {
+class OvenBuilder extends ApplianceBuilder {
     @Override
     Oven build(String line) {
         Oven oven = new Oven();

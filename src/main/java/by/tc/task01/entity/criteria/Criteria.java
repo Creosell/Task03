@@ -4,9 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Criteria {
-
     private final String groupSearchName;
-    private Map<String, Object> criteria = new HashMap<>();
+    private final Map<String, Object> criteria = new HashMap<>();
 
     public Criteria(String groupSearchName) {
         this.groupSearchName = groupSearchName;
@@ -23,5 +22,4 @@ public class Criteria {
     public Map<String, Object> getCriteria() {
         return criteria;
     }
-
 }

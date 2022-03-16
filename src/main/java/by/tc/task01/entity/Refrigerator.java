@@ -5,18 +5,15 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 import java.util.Locale;
 
 public class Refrigerator implements Appliance {
-    private  int powerConsumption;
-    private  int weight;
-    private  double freezerCapacity;
-    private  double overallCapacity;
-    private  double height;
-    private  double width;
+    private int powerConsumption;
+    private int weight;
+    private double freezerCapacity;
+    private double overallCapacity;
+    private double height;
+    private double width;
 
     public void setPowerConsumption(int powerConsumption) {
         this.powerConsumption = powerConsumption;
-    }
-
-    public Refrigerator() {
     }
 
     public void setWeight(int weight) {
@@ -39,18 +36,9 @@ public class Refrigerator implements Appliance {
         this.width = width;
     }
 
-    public Refrigerator(int powerConsumption, int weight, double freezerCapacity, double overallCapacity, double height, double width) {
-        this.powerConsumption = powerConsumption;
-        this.weight = weight;
-        this.freezerCapacity = freezerCapacity;
-        this.overallCapacity = overallCapacity;
-        this.height = height;
-        this.width = width;
-    }
-
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH,"%s : [%s=%d, %s=%s, %s=%.1f, %s=%.1f, %s=%.1f, %s=%.1f]",
+        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%.1f, %s=%.1f, %s=%.1f, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.Refrigerator.POWER_CONSUMPTION, powerConsumption,
                 SearchCriteria.Refrigerator.WEIGHT, weight,

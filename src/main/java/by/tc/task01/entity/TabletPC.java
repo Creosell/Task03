@@ -5,17 +5,15 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 import java.util.Locale;
 
 public class TabletPC implements Appliance {
-    private  int batteryCapacity;
-    private  double displayInches;
-    private  int memoryRom;
-    private  int flashMemoryCapacity;
-    private  String color;
+    private int batteryCapacity;
+    private double displayInches;
+    private int memoryRom;
+    private int flashMemoryCapacity;
+    private String color;
+
 
     public void setBatteryCapacity(int batteryCapacity) {
         this.batteryCapacity = batteryCapacity;
-    }
-
-    public TabletPC() {
     }
 
     public void setDisplayInches(double displayInches) {
@@ -34,17 +32,9 @@ public class TabletPC implements Appliance {
         this.color = color;
     }
 
-    public TabletPC(int batteryCapacity, double displayInches, int memoryRom, int flashMemoryCapacity, String color) {
-        this.batteryCapacity = batteryCapacity;
-        this.displayInches = displayInches;
-        this.memoryRom = memoryRom;
-        this.flashMemoryCapacity = flashMemoryCapacity;
-        this.color = color;
-    }
-
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH,"%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%s]",
+        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%s]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.TabletPC.BATTERY_CAPACITY, batteryCapacity,
                 SearchCriteria.TabletPC.DISPLAY_INCHES, displayInches,

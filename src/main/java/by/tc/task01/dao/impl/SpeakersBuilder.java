@@ -2,7 +2,7 @@ package by.tc.task01.dao.impl;
 
 import by.tc.task01.entity.Speakers;
 
-public class SpeakersBuilder extends ApplianceBuilder{
+public class SpeakersBuilder extends ApplianceBuilder {
     @Override
     Speakers build(String line) {
         Speakers speakers = new Speakers();
