@@ -1,7 +1,6 @@
 package by.tc.task01.entity;
 
-import java.util.Map;
+public interface Appliance {
+    //Map<String, String> getParametersMap();
 
-public abstract class Appliance {
-    public abstract Map<String, String> getParametersMap();
 }

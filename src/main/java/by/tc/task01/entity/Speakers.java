@@ -2,17 +2,34 @@ package by.tc.task01.entity;
 
 import by.tc.task01.entity.criteria.SearchCriteria;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.Locale;
 
-public class Speakers extends Appliance {
-    private final String powerConsumption;
-    private final String numberOfSpeakers;
-    private final String frequencyRange;
-    private final String cordLength;
+public class Speakers implements Appliance {
+    private  int powerConsumption;
+    private  int numberOfSpeakers;
+    private  String frequencyRange;
+    private  double cordLength;
 
-    public Speakers(String powerConsumption, String numberOfSpeakers, String frequencyRange, String cordLength) {
+    public void setPowerConsumption(int powerConsumption) {
+        this.powerConsumption = powerConsumption;
+    }
+
+    public void setNumberOfSpeakers(int numberOfSpeakers) {
+        this.numberOfSpeakers = numberOfSpeakers;
+    }
+
+    public Speakers() {
+    }
+
+    public void setFrequencyRange(String frequencyRange) {
+        this.frequencyRange = frequencyRange;
+    }
+
+    public void setCordLength(double cordLength) {
+        this.cordLength = cordLength;
+    }
+
+    public Speakers(int powerConsumption, int numberOfSpeakers, String frequencyRange, double cordLength) {
         this.powerConsumption = powerConsumption;
         this.numberOfSpeakers = numberOfSpeakers;
         this.frequencyRange = frequencyRange;
@@ -20,13 +37,12 @@ public class Speakers extends Appliance {
     }
 
     @Override
-    public Map<String, String> getParametersMap() {
-        Map<String, String> map = new LinkedHashMap<>();
-
-        map.put(SearchCriteria.Speakers.POWER_CONSUMPTION.toString(), powerConsumption);
-        map.put(SearchCriteria.Speakers.NUMBER_OF_SPEAKERS.toString(), numberOfSpeakers);
-        map.put(SearchCriteria.Speakers.FREQUENCY_RANGE.toString(), frequencyRange);
-        map.put(SearchCriteria.Speakers.CORD_LENGTH.toString(), cordLength);
-        return map;
+    public String toString() {
+        return String.format(Locale.ENGLISH,"%s : [%s=%d, %s=%s, %s=%s, %s=%.1f]",
+                this.getClass().getSimpleName(),
+                SearchCriteria.Speakers.POWER_CONSUMPTION, powerConsumption,
+                SearchCriteria.Speakers.NUMBER_OF_SPEAKERS, numberOfSpeakers,
+                SearchCriteria.Speakers.FREQUENCY_RANGE, frequencyRange,
+                SearchCriteria.Speakers.CORD_LENGTH, cordLength);
     }
 }

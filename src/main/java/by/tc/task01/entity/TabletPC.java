@@ -2,18 +2,39 @@ package by.tc.task01.entity;
 
 import by.tc.task01.entity.criteria.SearchCriteria;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.Locale;
 
-public class TabletPC extends Appliance {
-    private final String batteryCapacity;
-    private final String displayInches;
-    private final String memoryRom;
-    private final String flashMemoryCapacity;
-    private final String color;
+public class TabletPC implements Appliance {
+    private  int batteryCapacity;
+    private  double displayInches;
+    private  int memoryRom;
+    private  int flashMemoryCapacity;
+    private  String color;
 
-    public TabletPC(String batteryCapacity, String displayInches, String memoryRom, String flashMemoryCapacity, String color) {
+    public void setBatteryCapacity(int batteryCapacity) {
+        this.batteryCapacity = batteryCapacity;
+    }
+
+    public TabletPC() {
+    }
+
+    public void setDisplayInches(double displayInches) {
+        this.displayInches = displayInches;
+    }
+
+    public void setMemoryRom(int memoryRom) {
+        this.memoryRom = memoryRom;
+    }
+
+    public void setFlashMemoryCapacity(int flashMemoryCapacity) {
+        this.flashMemoryCapacity = flashMemoryCapacity;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public TabletPC(int batteryCapacity, double displayInches, int memoryRom, int flashMemoryCapacity, String color) {
         this.batteryCapacity = batteryCapacity;
         this.displayInches = displayInches;
         this.memoryRom = memoryRom;
@@ -22,14 +43,13 @@ public class TabletPC extends Appliance {
     }
 
     @Override
-    public Map<String, String> getParametersMap() {
-        Map<String, String> map = new LinkedHashMap<>();
-
-        map.put(SearchCriteria.TabletPC.BATTERY_CAPACITY.toString(), batteryCapacity);
-        map.put(SearchCriteria.TabletPC.DISPLAY_INCHES.toString(), displayInches);
-        map.put(SearchCriteria.TabletPC.MEMORY_ROM.toString(), memoryRom);
-        map.put(SearchCriteria.TabletPC.FLASH_MEMORY_CAPACITY.toString(), flashMemoryCapacity);
-        map.put(SearchCriteria.TabletPC.COLOR.toString(), color);
-        return map;
+    public String toString() {
+        return String.format(Locale.ENGLISH,"%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%s]",
+                this.getClass().getSimpleName(),
+                SearchCriteria.TabletPC.BATTERY_CAPACITY, batteryCapacity,
+                SearchCriteria.TabletPC.DISPLAY_INCHES, displayInches,
+                SearchCriteria.TabletPC.MEMORY_ROM, memoryRom,
+                SearchCriteria.TabletPC.FLASH_MEMORY_CAPACITY, flashMemoryCapacity,
+                SearchCriteria.TabletPC.COLOR, color);
     }
 }

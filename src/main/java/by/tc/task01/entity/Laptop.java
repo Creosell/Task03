@@ -2,38 +2,61 @@ package by.tc.task01.entity;
 
 import by.tc.task01.entity.criteria.SearchCriteria;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.Locale;
 
-public class Laptop extends Appliance {
-    private final String batteryCapacity;
-    private final String os;
-    private final String memoryRom;
-    private final String systemMemory;
-    private final String cpu;
-    private final String displayInchs;
+public class Laptop implements Appliance {
+    private  double batteryCapacity;
+    private  String os;
+    private  int memoryRom;
+    private  int systemMemory;
+    private  double cpu;
+    private  double displayInches;
 
-    public Laptop(String batteryCapacity, String os, String memoryRom, String systemMemory, String cpu, String displayInchs) {
+    public Laptop(double batteryCapacity, String os, int memoryRom, int systemMemory, double cpu, double displayInches) {
         this.batteryCapacity = batteryCapacity;
         this.os = os;
         this.memoryRom = memoryRom;
         this.systemMemory = systemMemory;
         this.cpu = cpu;
-        this.displayInchs = displayInchs;
+        this.displayInches = displayInches;
     }
 
+    public void setBatteryCapacity(double batteryCapacity) {
+        this.batteryCapacity = batteryCapacity;
+    }
+
+    public void setOs(String os) {
+        this.os = os;
+    }
+
+    public void setMemoryRom(int memoryRom) {
+        this.memoryRom = memoryRom;
+    }
+
+    public void setSystemMemory(int systemMemory) {
+        this.systemMemory = systemMemory;
+    }
+
+    public void setCpu(double cpu) {
+        this.cpu = cpu;
+    }
+
+    public void setDisplayInches(double displayInches) {
+        this.displayInches = displayInches;
+    }
+
+    public Laptop() {
+    }
 
     @Override
-    public Map<String, String> getParametersMap() {
-        Map<String, String> map = new LinkedHashMap<>();
-
-        map.put(SearchCriteria.Laptop.BATTERY_CAPACITY.toString(), batteryCapacity);
-        map.put(SearchCriteria.Laptop.OS.toString(), os);
-        map.put(SearchCriteria.Laptop.MEMORY_ROM.toString(), memoryRom);
-        map.put(SearchCriteria.Laptop.SYSTEM_MEMORY.toString(), systemMemory);
-        map.put(SearchCriteria.Laptop.CPU.toString(), cpu);
-        map.put(SearchCriteria.Laptop.DISPLAY_INCHS.toString(), displayInchs);
-        return map;
+    public String toString() {
+        return String.format(Locale.ENGLISH, "%s : [%s=%.1f, %s=%s, %s=%d, %s=%d, %s=%.1f, %s=%.1f]",
+                this.getClass().getSimpleName(),
+                SearchCriteria.Laptop.BATTERY_CAPACITY, batteryCapacity,
+                SearchCriteria.Laptop.OS, os,
+                SearchCriteria.Laptop.MEMORY_ROM, memoryRom,
+                SearchCriteria.Laptop.SYSTEM_MEMORY, systemMemory,
+                SearchCriteria.Laptop.CPU, cpu,
+                SearchCriteria.Laptop.DISPLAY_INCHES, displayInches);
     }
 }

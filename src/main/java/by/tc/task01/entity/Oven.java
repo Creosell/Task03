@@ -2,18 +2,17 @@ package by.tc.task01.entity;
 
 import by.tc.task01.entity.criteria.SearchCriteria;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.Locale;
 
-public class Oven extends Appliance {
-    private final String powerConsumption;
-    private final String weight;
-    private final String capacity;
-    private final String depth;
-    private final String height;
-    private final String width;
+public class Oven implements Appliance {
+    private int powerConsumption;
+    private int weight;
+    private int capacity;
+    private int depth;
+    private double height;
+    private double width;
 
-    public Oven(String powerConsumption, String weight, String capacity, String depth, String height, String width) {
+    public Oven(int powerConsumption, int weight, int capacity, int depth, double height, double width) {
         this.powerConsumption = powerConsumption;
         this.weight = weight;
         this.capacity = capacity;
@@ -22,16 +21,42 @@ public class Oven extends Appliance {
         this.width = width;
     }
 
-    @Override
-    public Map<String, String> getParametersMap() {
-        Map<String, String> map = new LinkedHashMap<>();
+    public Oven() {
+    }
 
-        map.put(SearchCriteria.Oven.POWER_CONSUMPTION.toString(), powerConsumption);
-        map.put(SearchCriteria.Oven.WEIGHT.toString(), weight);
-        map.put(SearchCriteria.Oven.CAPACITY.toString(), capacity);
-        map.put(SearchCriteria.Oven.DEPTH.toString(), depth);
-        map.put(SearchCriteria.Oven.HEIGHT.toString(), height);
-        map.put(SearchCriteria.Oven.WIDTH.toString(), width);
-        return map;
+    public void setPowerConsumption(int powerConsumption) {
+        this.powerConsumption = powerConsumption;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public void setDepth(int depth) {
+        this.depth = depth;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%.1f, %s=%.1f]",
+                this.getClass().getSimpleName(),
+                SearchCriteria.Oven.POWER_CONSUMPTION, powerConsumption,
+                SearchCriteria.Oven.WEIGHT, weight,
+                SearchCriteria.Oven.CAPACITY, capacity,
+                SearchCriteria.Oven.DEPTH, depth,
+                SearchCriteria.Oven.HEIGHT, height,
+                SearchCriteria.Oven.WIDTH, width);
     }
 }

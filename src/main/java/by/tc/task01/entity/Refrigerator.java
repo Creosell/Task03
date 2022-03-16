@@ -2,19 +2,44 @@ package by.tc.task01.entity;
 
 import by.tc.task01.entity.criteria.SearchCriteria;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.Locale;
 
-public class Refrigerator extends Appliance {
-    private final String powerConsumption;
-    private final String weight;
-    private final String freezerCapacity;
-    private final String overallCapacity;
-    private final String height;
-    private final String width;
+public class Refrigerator implements Appliance {
+    private  int powerConsumption;
+    private  int weight;
+    private  double freezerCapacity;
+    private  double overallCapacity;
+    private  double height;
+    private  double width;
 
-    public Refrigerator(String powerConsumption, String weight, String freezerCapacity, String overallCapacity, String height, String width) {
+    public void setPowerConsumption(int powerConsumption) {
+        this.powerConsumption = powerConsumption;
+    }
+
+    public Refrigerator() {
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public void setFreezerCapacity(double freezerCapacity) {
+        this.freezerCapacity = freezerCapacity;
+    }
+
+    public void setOverallCapacity(double overallCapacity) {
+        this.overallCapacity = overallCapacity;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public Refrigerator(int powerConsumption, int weight, double freezerCapacity, double overallCapacity, double height, double width) {
         this.powerConsumption = powerConsumption;
         this.weight = weight;
         this.freezerCapacity = freezerCapacity;
@@ -24,15 +49,14 @@ public class Refrigerator extends Appliance {
     }
 
     @Override
-    public Map<String, String> getParametersMap() {
-        Map<String, String> map = new LinkedHashMap<>();
-
-        map.put(SearchCriteria.Refrigerator.POWER_CONSUMPTION.toString(), powerConsumption);
-        map.put(SearchCriteria.Refrigerator.WEIGHT.toString(), weight);
-        map.put(SearchCriteria.Refrigerator.FREEZER_CAPACITY.toString(), freezerCapacity);
-        map.put(SearchCriteria.Refrigerator.OVERALL_CAPACITY.toString(), overallCapacity);
-        map.put(SearchCriteria.Refrigerator.HEIGHT.toString(), height);
-        map.put(SearchCriteria.Refrigerator.WIDTH.toString(), width);
-        return map;
+    public String toString() {
+        return String.format(Locale.ENGLISH,"%s : [%s=%d, %s=%s, %s=%.1f, %s=%.1f, %s=%.1f, %s=%.1f]",
+                this.getClass().getSimpleName(),
+                SearchCriteria.Refrigerator.POWER_CONSUMPTION, powerConsumption,
+                SearchCriteria.Refrigerator.WEIGHT, weight,
+                SearchCriteria.Refrigerator.FREEZER_CAPACITY, freezerCapacity,
+                SearchCriteria.Refrigerator.OVERALL_CAPACITY, overallCapacity,
+                SearchCriteria.Refrigerator.HEIGHT, height,
+                SearchCriteria.Refrigerator.WIDTH, width);
     }
 }

@@ -24,5 +24,4 @@ public class Criteria {
         return criteria;
     }
 
-    // you may add your own code here
 }

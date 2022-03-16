@@ -1,7 +1,7 @@
 package by.tc.task01.dao.impl;
 
 import by.tc.task01.dao.ApplianceDAO;
-import by.tc.task01.entity.*;
+import by.tc.task01.entity.Appliance;
 import by.tc.task01.entity.criteria.Criteria;
 
 import java.io.BufferedReader;
@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class ApplianceDAOImpl implements ApplianceDAO {
 
@@ -17,7 +18,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
     public List<Appliance> find(Criteria criteria) {
         List<Appliance> applianceList = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/appliances_db.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(Objects.requireNonNull(getClass().getResource("/appliances_db.txt")).getPath()))) {
             int numberOfCriteria = criteria.getCriteria().size();
             int counter;
 
@@ -42,41 +43,24 @@ public class ApplianceDAOImpl implements ApplianceDAO {
         return applianceList;
     }
 
-    private Appliance createObject(String line, String className) {
-        String[] parameters = findParameters(line);
+    private Appliance createObject(final String line, final String className) {
 
         switch (className) {
             case "Laptop":
-                return new Laptop(parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5]);
+                return new LaptopBuilder().build(line);
             case "Oven":
-                return new Oven(parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5]);
+                return new OvenBuilder().build(line);
             case "Refrigerator":
-                return new Refrigerator(parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5]);
+                return new RefrigeratorBuilder().build(line);
             case "Speakers":
-                return new Speakers(parameters[0], parameters[1], parameters[2], parameters[3]);
+                return new SpeakersBuilder().build(line);
             case "TabletPC":
-                return new TabletPC(parameters[0], parameters[1], parameters[2], parameters[3], parameters[4]);
+                return new TabletBuilder().build(line);
             case "VacuumCleaner":
-                return new VacuumCleaner(parameters[0], parameters[1], parameters[2], parameters[3], parameters[4], parameters[5]);
+                return new VacuumCleanerBuilder().build(line);
             default:
-                return null;
+                throw new RuntimeException("Error while creating object");
         }
-    }
-
-    private String[] findParameters(String line) {
-        char[] charArray = line.toCharArray();
-        StringBuilder builder = new StringBuilder();
-
-        for (int i = 0; i < charArray.length; i++) {
-            if (charArray[i] == '=') {
-                while (charArray[i] != ',' && i < charArray.length - 1) {
-                    i++;
-                    builder.append(charArray[i]);
-                }
-            }
-        }
-        return builder.toString().split(",");
     }
 }
 
-//you may add your own new classes
