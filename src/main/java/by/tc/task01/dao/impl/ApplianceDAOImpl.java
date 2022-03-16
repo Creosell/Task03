@@ -38,7 +38,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Unexpected error");
         }
         return applianceList;
     }
