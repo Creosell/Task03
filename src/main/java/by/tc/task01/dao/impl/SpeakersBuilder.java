@@ -8,7 +8,7 @@ public class SpeakersBuilder extends ApplianceBuilder {
         Speakers speakers = new Speakers();
         String[] parameters = findParameters(line);
 
-        speakers.setPowerConsumption(Integer.parseInt(parameters[0]));
+        speakers.setPowerOutput(Integer.parseInt(parameters[0]));
         speakers.setNumberOfSpeakers(Integer.parseInt(parameters[1]));
         speakers.setFrequencyRange(parameters[2]);
         speakers.setCordLength(Double.parseDouble(parameters[3]));

@@ -4,24 +4,9 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 
 import java.util.Locale;
 
-public class TabletPC extends Product {
-    private int batteryCapacity;
-    private double displayInches;
-    private int memoryRom;
+public class TabletPC extends ComputerElectronics {
     private int flashMemoryCapacity;
     private String color;
-
-    public void setBatteryCapacity(int batteryCapacity) {
-        this.batteryCapacity = batteryCapacity;
-    }
-
-    public void setDisplayInches(double displayInches) {
-        this.displayInches = displayInches;
-    }
-
-    public void setMemoryRom(int memoryRom) {
-        this.memoryRom = memoryRom;
-    }
 
     public void setFlashMemoryCapacity(int flashMemoryCapacity) {
         this.flashMemoryCapacity = flashMemoryCapacity;
@@ -34,14 +19,14 @@ public class TabletPC extends Product {
     @Override
     public String toString() {
         return String.format(Locale.ENGLISH,
-                "%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%s, %s=%s, %s=%.1f]",
+                "%s : [%s=%.1f, %s=%s, %s=%d, %s=%d, %s=%s, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
-                SearchCriteria.TabletPC.BATTERY_CAPACITY, batteryCapacity,
-                SearchCriteria.TabletPC.DISPLAY_INCHES, displayInches,
-                SearchCriteria.TabletPC.MEMORY_ROM, memoryRom,
+                SearchCriteria.TabletPC.BATTERY_CAPACITY, getBatteryCapacity(),
+                SearchCriteria.TabletPC.DISPLAY_INCHES, getDisplayInches(),
+                SearchCriteria.TabletPC.MEMORY_ROM, getMemoryRom(),
                 SearchCriteria.TabletPC.FLASH_MEMORY_CAPACITY, flashMemoryCapacity,
                 SearchCriteria.TabletPC.COLOR, color,
-                SearchCriteria.Appliance.MANUFACTURER, getManufacturer(),
-                SearchCriteria.Appliance.PRICE, getPrice());
+                SearchCriteria.TabletPC.MANUFACTURER, getManufacturer(),
+                SearchCriteria.TabletPC.PRICE, getPrice());
     }
 }

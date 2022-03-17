@@ -47,7 +47,7 @@ public class VacuumCleaner extends Product {
                 SearchCriteria.VacuumCleaner.WAND_TYPE, wandType,
                 SearchCriteria.VacuumCleaner.MOTOR_SPEED_REGULATION, motorSpeedRegulation,
                 SearchCriteria.VacuumCleaner.CLEANING_WIDTH, cleaningWidth,
-                SearchCriteria.Appliance.MANUFACTURER, getManufacturer(),
-                SearchCriteria.Appliance.PRICE, getPrice());
+                SearchCriteria.VacuumCleaner.MANUFACTURER, getManufacturer(),
+                SearchCriteria.VacuumCleaner.PRICE, getPrice());
     }
 }

@@ -47,7 +47,7 @@ public class Oven extends Product {
                 SearchCriteria.Oven.DEPTH, depth,
                 SearchCriteria.Oven.HEIGHT, height,
                 SearchCriteria.Oven.WIDTH, width,
-                SearchCriteria.Appliance.MANUFACTURER, getManufacturer(),
-                SearchCriteria.Appliance.PRICE, getPrice());
+                SearchCriteria.Oven.MANUFACTURER, getManufacturer(),
+                SearchCriteria.Oven.PRICE, getPrice());
     }
 }

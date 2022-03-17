@@ -47,7 +47,7 @@ public class Refrigerator extends Product {
                 SearchCriteria.Refrigerator.OVERALL_CAPACITY, overallCapacity,
                 SearchCriteria.Refrigerator.HEIGHT, height,
                 SearchCriteria.Refrigerator.WIDTH, width,
-                SearchCriteria.Appliance.MANUFACTURER, getManufacturer(),
-                SearchCriteria.Appliance.PRICE, getPrice());
+                SearchCriteria.Refrigerator.MANUFACTURER, getManufacturer(),
+                SearchCriteria.Refrigerator.PRICE, getPrice());
     }
 }
