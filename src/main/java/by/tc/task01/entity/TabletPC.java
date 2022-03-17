@@ -4,13 +4,16 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 
 import java.util.Locale;
 
-public class TabletPC implements Appliance {
+public class TabletPC extends Appliance {
     private int batteryCapacity;
     private double displayInches;
     private int memoryRom;
     private int flashMemoryCapacity;
     private String color;
 
+    public TabletPC() {
+        super("Unnamed", 0);
+    }
 
     public void setBatteryCapacity(int batteryCapacity) {
         this.batteryCapacity = batteryCapacity;
@@ -34,12 +37,14 @@ public class TabletPC implements Appliance {
 
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%s]",
+        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%s, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.TabletPC.BATTERY_CAPACITY, batteryCapacity,
                 SearchCriteria.TabletPC.DISPLAY_INCHES, displayInches,
                 SearchCriteria.TabletPC.MEMORY_ROM, memoryRom,
                 SearchCriteria.TabletPC.FLASH_MEMORY_CAPACITY, flashMemoryCapacity,
-                SearchCriteria.TabletPC.COLOR, color);
+                SearchCriteria.TabletPC.COLOR, color,
+                SearchCriteria.Appliance.MANUFACTURER, getManufacturer(),
+                SearchCriteria.Appliance.PRICE, getPrice());
     }
 }

@@ -14,6 +14,8 @@ public class LaptopBuilder extends ApplianceBuilder {
         laptop.setSystemMemory(Integer.parseInt(parameters[3]));
         laptop.setCpu(Double.parseDouble(parameters[4]));
         laptop.setDisplayInches(Double.parseDouble(parameters[5]));
+        laptop.setManufacturer(parameters[6]);
+        laptop.setPrice(Double.parseDouble(parameters[7]));
         return laptop;
     }
 }

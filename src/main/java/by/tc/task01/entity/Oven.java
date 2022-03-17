@@ -4,13 +4,18 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 
 import java.util.Locale;
 
-public class Oven implements Appliance {
+public class Oven extends Appliance {
     private int powerConsumption;
     private int weight;
     private int capacity;
     private int depth;
     private double height;
     private double width;
+
+    public Oven() {
+        super("Unknown", 0);
+    }
+
 
     public void setPowerConsumption(int powerConsumption) {
         this.powerConsumption = powerConsumption;
@@ -38,13 +43,15 @@ public class Oven implements Appliance {
 
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%.1f, %s=%.1f]",
+        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%.1f, %s=%.1f, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.Oven.POWER_CONSUMPTION, powerConsumption,
                 SearchCriteria.Oven.WEIGHT, weight,
                 SearchCriteria.Oven.CAPACITY, capacity,
                 SearchCriteria.Oven.DEPTH, depth,
                 SearchCriteria.Oven.HEIGHT, height,
-                SearchCriteria.Oven.WIDTH, width);
+                SearchCriteria.Oven.WIDTH, width,
+                SearchCriteria.Appliance.MANUFACTURER, getManufacturer(),
+                SearchCriteria.Appliance.PRICE, getPrice());
     }
 }

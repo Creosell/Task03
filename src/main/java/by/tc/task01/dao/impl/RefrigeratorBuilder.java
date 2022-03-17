@@ -14,6 +14,8 @@ public class RefrigeratorBuilder extends ApplianceBuilder {
         refrigerator.setOverallCapacity(Double.parseDouble(parameters[3]));
         refrigerator.setHeight(Double.parseDouble(parameters[4]));
         refrigerator.setWidth(Double.parseDouble(parameters[5]));
+        refrigerator.setManufacturer(parameters[6]);
+        refrigerator.setPrice(Double.parseDouble(parameters[7]));
         return refrigerator;
     }
 }

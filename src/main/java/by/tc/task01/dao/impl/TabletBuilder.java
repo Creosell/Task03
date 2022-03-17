@@ -13,6 +13,8 @@ public class TabletBuilder extends ApplianceBuilder {
         tabletPC.setMemoryRom(Integer.parseInt(parameters[2]));
         tabletPC.setFlashMemoryCapacity(Integer.parseInt(parameters[3]));
         tabletPC.setColor(parameters[4]);
+        tabletPC.setManufacturer(parameters[5]);
+        tabletPC.setPrice(Double.parseDouble(parameters[6]));
         return tabletPC;
     }
 }

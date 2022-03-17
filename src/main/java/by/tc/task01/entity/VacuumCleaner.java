@@ -4,13 +4,17 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 
 import java.util.Locale;
 
-public class VacuumCleaner implements Appliance {
+public class VacuumCleaner extends Appliance {
     private int powerConsumption;
     private String filterType;
     private String bagType;
     private String wandType;
     private int motorSpeedRegulation;
     private int cleaningWidth;
+
+    public VacuumCleaner() {
+        super("Unnamed", 0);
+    }
 
     public void setPowerConsumption(int powerConsumption) {
         this.powerConsumption = powerConsumption;
@@ -38,13 +42,15 @@ public class VacuumCleaner implements Appliance {
 
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%s, %s=%s, %s=%d, %s=%d]",
+        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%s, %s=%s, %s=%d, %s=%d, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.VacuumCleaner.POWER_CONSUMPTION, powerConsumption,
                 SearchCriteria.VacuumCleaner.FILTER_TYPE, filterType,
                 SearchCriteria.VacuumCleaner.BAG_TYPE, bagType,
                 SearchCriteria.VacuumCleaner.WAND_TYPE, wandType,
                 SearchCriteria.VacuumCleaner.MOTOR_SPEED_REGULATION, motorSpeedRegulation,
-                SearchCriteria.VacuumCleaner.CLEANING_WIDTH, cleaningWidth);
+                SearchCriteria.VacuumCleaner.CLEANING_WIDTH, cleaningWidth,
+                SearchCriteria.Appliance.MANUFACTURER, getManufacturer(),
+                SearchCriteria.Appliance.PRICE, getPrice());
     }
 }

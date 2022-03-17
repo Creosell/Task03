@@ -14,6 +14,8 @@ class OvenBuilder extends ApplianceBuilder {
         oven.setDepth(Integer.parseInt(parameters[3]));
         oven.setHeight(Double.parseDouble(parameters[4]));
         oven.setWidth(Double.parseDouble(parameters[5]));
+        oven.setManufacturer(parameters[6]);
+        oven.setPrice(Double.parseDouble(parameters[7]));
         return oven;
     }
 }

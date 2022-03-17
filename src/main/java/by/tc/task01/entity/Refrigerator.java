@@ -4,13 +4,17 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 
 import java.util.Locale;
 
-public class Refrigerator implements Appliance {
+public class Refrigerator extends Appliance {
     private int powerConsumption;
     private int weight;
     private double freezerCapacity;
     private double overallCapacity;
     private double height;
     private double width;
+
+    public Refrigerator() {
+        super("Unnamed", 0);
+    }
 
     public void setPowerConsumption(int powerConsumption) {
         this.powerConsumption = powerConsumption;
@@ -38,13 +42,15 @@ public class Refrigerator implements Appliance {
 
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%.1f, %s=%.1f, %s=%.1f, %s=%.1f]",
+        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%.1f, %s=%.1f, %s=%.1f, %s=%.1f, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.Refrigerator.POWER_CONSUMPTION, powerConsumption,
                 SearchCriteria.Refrigerator.WEIGHT, weight,
                 SearchCriteria.Refrigerator.FREEZER_CAPACITY, freezerCapacity,
                 SearchCriteria.Refrigerator.OVERALL_CAPACITY, overallCapacity,
                 SearchCriteria.Refrigerator.HEIGHT, height,
-                SearchCriteria.Refrigerator.WIDTH, width);
+                SearchCriteria.Refrigerator.WIDTH, width,
+                SearchCriteria.Appliance.MANUFACTURER, getManufacturer(),
+                SearchCriteria.Appliance.PRICE, getPrice());
     }
 }

@@ -4,13 +4,17 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 
 import java.util.Locale;
 
-public class Laptop implements Appliance {
+public class Laptop extends Appliance {
     private double batteryCapacity;
     private String os;
     private int memoryRom;
     private int systemMemory;
     private double cpu;
     private double displayInches;
+
+    public Laptop() {
+        super("Unknown", 0);
+    }
 
     public void setBatteryCapacity(double batteryCapacity) {
         this.batteryCapacity = batteryCapacity;
@@ -38,13 +42,15 @@ public class Laptop implements Appliance {
 
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH, "%s : [%s=%.1f, %s=%s, %s=%d, %s=%d, %s=%.1f, %s=%.1f]",
+        return String.format(Locale.ENGLISH, "%s : [%s=%.1f, %s=%s, %s=%d, %s=%d, %s=%.1f, %s=%.1f, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.Laptop.BATTERY_CAPACITY, batteryCapacity,
                 SearchCriteria.Laptop.OS, os,
                 SearchCriteria.Laptop.MEMORY_ROM, memoryRom,
                 SearchCriteria.Laptop.SYSTEM_MEMORY, systemMemory,
                 SearchCriteria.Laptop.CPU, cpu,
-                SearchCriteria.Laptop.DISPLAY_INCHES, displayInches);
+                SearchCriteria.Laptop.DISPLAY_INCHES, displayInches,
+                SearchCriteria.Appliance.MANUFACTURER, getManufacturer(),
+                SearchCriteria.Appliance.PRICE, getPrice());
     }
 }

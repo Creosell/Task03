@@ -5,6 +5,10 @@ public final class SearchCriteria {
     private SearchCriteria() {
     }
 
+    public enum Appliance {
+        MANUFACTURER, PRICE
+    }
+
     public enum Oven {
         POWER_CONSUMPTION, WEIGHT, CAPACITY, DEPTH, HEIGHT, WIDTH
     }

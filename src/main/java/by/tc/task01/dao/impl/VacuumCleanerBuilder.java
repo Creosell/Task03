@@ -14,6 +14,8 @@ public class VacuumCleanerBuilder extends ApplianceBuilder {
         vacuumCleaner.setWandType(parameters[3]);
         vacuumCleaner.setMotorSpeedRegulation(Integer.parseInt(parameters[4]));
         vacuumCleaner.setCleaningWidth(Integer.parseInt(parameters[5]));
+        vacuumCleaner.setManufacturer(parameters[6]);
+        vacuumCleaner.setPrice(Double.parseDouble(parameters[7]));
         return vacuumCleaner;
     }
 }

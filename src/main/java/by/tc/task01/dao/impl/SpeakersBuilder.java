@@ -12,6 +12,8 @@ public class SpeakersBuilder extends ApplianceBuilder {
         speakers.setNumberOfSpeakers(Integer.parseInt(parameters[1]));
         speakers.setFrequencyRange(parameters[2]);
         speakers.setCordLength(Double.parseDouble(parameters[3]));
+        speakers.setManufacturer(parameters[4]);
+        speakers.setPrice(Double.parseDouble(parameters[5]));
         return speakers;
     }
 }
