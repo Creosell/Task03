@@ -43,7 +43,8 @@ public class Oven extends Appliance {
 
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%.1f, %s=%.1f, %s=%s, %s=%.1f]",
+        return String.format(Locale.ENGLISH,
+                "%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%.1f, %s=%.1f, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.Oven.POWER_CONSUMPTION, powerConsumption,
                 SearchCriteria.Oven.WEIGHT, weight,
