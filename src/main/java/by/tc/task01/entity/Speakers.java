@@ -11,7 +11,7 @@ public class Speakers extends Appliance {
     private double cordLength;
 
     public Speakers() {
-        super("Unnamed", 0);
+        super("Unknown", 0);
     }
 
     public void setPowerConsumption(int powerConsumption) {

@@ -16,7 +16,6 @@ public class Oven extends Appliance {
         super("Unknown", 0);
     }
 
-
     public void setPowerConsumption(int powerConsumption) {
         this.powerConsumption = powerConsumption;
     }

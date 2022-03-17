@@ -13,7 +13,7 @@ public class VacuumCleaner extends Appliance {
     private int cleaningWidth;
 
     public VacuumCleaner() {
-        super("Unnamed", 0);
+        super("Unknown", 0);
     }
 
     public void setPowerConsumption(int powerConsumption) {

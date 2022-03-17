@@ -12,7 +12,7 @@ public class TabletPC extends Appliance {
     private String color;
 
     public TabletPC() {
-        super("Unnamed", 0);
+        super("Unknown", 0);
     }
 
     public void setBatteryCapacity(int batteryCapacity) {

@@ -13,7 +13,7 @@ public class Refrigerator extends Appliance {
     private double width;
 
     public Refrigerator() {
-        super("Unnamed", 0);
+        super("Unknown", 0);
     }
 
     public void setPowerConsumption(int powerConsumption) {
