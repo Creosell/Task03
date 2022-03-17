@@ -4,17 +4,12 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 
 import java.util.Locale;
 
-public class VacuumCleaner extends Product {
-    private int powerConsumption;
+public class VacuumCleaner extends Appliance {
     private String filterType;
     private String bagType;
     private String wandType;
     private int motorSpeedRegulation;
     private int cleaningWidth;
-
-    public void setPowerConsumption(int powerConsumption) {
-        this.powerConsumption = powerConsumption;
-    }
 
     public void setFilterType(String filterType) {
         this.filterType = filterType;
@@ -41,7 +36,7 @@ public class VacuumCleaner extends Product {
         return String.format(Locale.ENGLISH,
                 "%s : [%s=%d, %s=%s, %s=%s, %s=%s, %s=%d, %s=%d, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
-                SearchCriteria.VacuumCleaner.POWER_CONSUMPTION, powerConsumption,
+                SearchCriteria.VacuumCleaner.POWER_CONSUMPTION, getPowerConsumption(),
                 SearchCriteria.VacuumCleaner.FILTER_TYPE, filterType,
                 SearchCriteria.VacuumCleaner.BAG_TYPE, bagType,
                 SearchCriteria.VacuumCleaner.WAND_TYPE, wandType,
