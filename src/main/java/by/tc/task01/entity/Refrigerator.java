@@ -12,10 +12,6 @@ public class Refrigerator extends Appliance {
     private double height;
     private double width;
 
-    public Refrigerator() {
-        super("Unknown", 0);
-    }
-
     public void setPowerConsumption(int powerConsumption) {
         this.powerConsumption = powerConsumption;
     }

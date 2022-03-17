@@ -12,10 +12,6 @@ public class VacuumCleaner extends Appliance {
     private int motorSpeedRegulation;
     private int cleaningWidth;
 
-    public VacuumCleaner() {
-        super("Unknown", 0);
-    }
-
     public void setPowerConsumption(int powerConsumption) {
         this.powerConsumption = powerConsumption;
     }

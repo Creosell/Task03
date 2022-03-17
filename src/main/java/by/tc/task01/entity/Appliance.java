@@ -4,11 +4,6 @@ public class Appliance {
     private String manufacturer;
     private double price;
 
-    public Appliance(String manufacturer, double price) {
-        this.manufacturer = manufacturer;
-        this.price = price;
-    }
-
     public String getManufacturer() {
         return manufacturer;
     }

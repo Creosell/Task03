@@ -10,10 +10,6 @@ public class Speakers extends Appliance {
     private String frequencyRange;
     private double cordLength;
 
-    public Speakers() {
-        super("Unknown", 0);
-    }
-
     public void setPowerConsumption(int powerConsumption) {
         this.powerConsumption = powerConsumption;
     }

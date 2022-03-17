@@ -12,10 +12,6 @@ public class Laptop extends Appliance {
     private double cpu;
     private double displayInches;
 
-    public Laptop() {
-        super("Unknown", 0);
-    }
-
     public void setBatteryCapacity(double batteryCapacity) {
         this.batteryCapacity = batteryCapacity;
     }

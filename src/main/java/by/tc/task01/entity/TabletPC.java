@@ -11,10 +11,6 @@ public class TabletPC extends Appliance {
     private int flashMemoryCapacity;
     private String color;
 
-    public TabletPC() {
-        super("Unknown", 0);
-    }
-
     public void setBatteryCapacity(int batteryCapacity) {
         this.batteryCapacity = batteryCapacity;
     }
