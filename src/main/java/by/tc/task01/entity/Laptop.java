@@ -4,7 +4,7 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 
 import java.util.Locale;
 
-public class Laptop extends Appliance {
+public class Laptop extends Product {
     private double batteryCapacity;
     private String os;
     private int memoryRom;

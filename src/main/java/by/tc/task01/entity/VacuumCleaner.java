@@ -4,7 +4,7 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 
 import java.util.Locale;
 
-public class VacuumCleaner extends Appliance {
+public class VacuumCleaner extends Product {
     private int powerConsumption;
     private String filterType;
     private String bagType;

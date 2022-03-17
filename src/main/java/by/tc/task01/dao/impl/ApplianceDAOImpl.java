@@ -1,7 +1,7 @@
 package by.tc.task01.dao.impl;
 
 import by.tc.task01.dao.ApplianceDAO;
-import by.tc.task01.entity.Appliance;
+import by.tc.task01.entity.Product;
 import by.tc.task01.entity.criteria.Criteria;
 
 import java.io.BufferedReader;
@@ -15,8 +15,8 @@ import java.util.Objects;
 public class ApplianceDAOImpl implements ApplianceDAO {
 
     @Override
-    public List<Appliance> find(Criteria criteria) {
-        List<Appliance> applianceList = new ArrayList<>();
+    public List<Product> find(Criteria criteria) {
+        List<Product> productList = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(Objects.requireNonNull(getClass().getResource("/appliances_db.txt")).getPath()))) {
             int numberOfCriteria = criteria.getCriteria().size();
@@ -32,7 +32,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
                             counter++;
                         }
                         if (counter == numberOfCriteria) {
-                            applianceList.add(createObject(line, criteria.getGroupSearchName()));
+                            productList.add(createObject(line, criteria.getGroupSearchName()));
                         }
                     }
                 }
@@ -40,10 +40,10 @@ public class ApplianceDAOImpl implements ApplianceDAO {
         } catch (IOException e) {
             throw new RuntimeException("Unexpected error");
         }
-        return applianceList;
+        return productList;
     }
 
-    private Appliance createObject(final String line, final String className) {
+    private Product createObject(final String line, final String className) {
 
         switch (className) {
             case "Laptop":

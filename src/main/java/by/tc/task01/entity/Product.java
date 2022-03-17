@@ -1,6 +1,6 @@
 package by.tc.task01.entity;
 
-public class Appliance {
+public class Product {
     private String manufacturer;
     private double price;
 

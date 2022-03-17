@@ -4,7 +4,7 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 
 import java.util.Locale;
 
-public class TabletPC extends Appliance {
+public class TabletPC extends Product {
     private int batteryCapacity;
     private double displayInches;
     private int memoryRom;

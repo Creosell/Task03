@@ -1,14 +1,14 @@
 package by.tc.task01.main;
 
-import by.tc.task01.entity.Appliance;
+import by.tc.task01.entity.Product;
 
 import java.util.List;
 
 public class PrintApplianceInfo {
 
-    public static void print(List<Appliance> appliance) {
-        if (!appliance.isEmpty()) {
-            for (Appliance entity : appliance) {
+    public static void print(List<Product> product) {
+        if (!product.isEmpty()) {
+            for (Product entity : product) {
                 System.out.println(entity.toString());
             }
             System.out.println();

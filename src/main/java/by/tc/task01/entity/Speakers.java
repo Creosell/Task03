@@ -4,7 +4,7 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 
 import java.util.Locale;
 
-public class Speakers extends Appliance {
+public class Speakers extends Product {
     private int powerConsumption;
     private int numberOfSpeakers;
     private String frequencyRange;

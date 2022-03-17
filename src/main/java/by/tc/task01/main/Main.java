@@ -1,6 +1,6 @@
 package by.tc.task01.main;
 
-import by.tc.task01.entity.Appliance;
+import by.tc.task01.entity.Product;
 import by.tc.task01.entity.criteria.Criteria;
 import by.tc.task01.service.ApplianceService;
 import by.tc.task01.service.ServiceFactory;
@@ -13,7 +13,7 @@ import static by.tc.task01.entity.criteria.SearchCriteria.TabletPC;
 public class Main {
 
     public static void main(String[] args) {
-        List<Appliance> appliance;
+        List<Product> product;
 
         ServiceFactory factory = ServiceFactory.getInstance();
         ApplianceService service = factory.getApplianceService();
@@ -23,9 +23,9 @@ public class Main {
         Criteria criteriaOven = new Criteria(Oven.class.getSimpleName());//"Oven"
         criteriaOven.add(Oven.CAPACITY.toString(), 3);
 
-        appliance = service.find(criteriaOven);
+        product = service.find(criteriaOven);
 
-        PrintApplianceInfo.print(appliance);
+        PrintApplianceInfo.print(product);
 
         //////////////////////////////////////////////////////////////////
 
@@ -33,9 +33,9 @@ public class Main {
         criteriaOven.add(Oven.HEIGHT.toString(), 200);
         criteriaOven.add(Oven.DEPTH.toString(), 300);
 
-        appliance = service.find(criteriaOven);
+        product = service.find(criteriaOven);
 
-        PrintApplianceInfo.print(appliance);
+        PrintApplianceInfo.print(product);
 
         //////////////////////////////////////////////////////////////////
 
@@ -44,8 +44,8 @@ public class Main {
         criteriaTabletPC.add(TabletPC.DISPLAY_INCHES.toString(), 14);
         criteriaTabletPC.add(TabletPC.MEMORY_ROM.toString(), 8000);
 
-        appliance = service.find(criteriaTabletPC);// find(Object...obj) changed object to Tablet PC
+        product = service.find(criteriaTabletPC);// find(Object...obj) changed object to Tablet PC
 
-        PrintApplianceInfo.print(appliance);
+        PrintApplianceInfo.print(product);
     }
 }

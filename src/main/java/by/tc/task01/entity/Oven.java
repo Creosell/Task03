@@ -4,7 +4,7 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 
 import java.util.Locale;
 
-public class Oven extends Appliance {
+public class Oven extends Product {
     private int powerConsumption;
     private int weight;
     private int capacity;
