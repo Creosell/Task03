@@ -42,7 +42,8 @@ public class Refrigerator extends Appliance {
 
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%.1f, %s=%.1f, %s=%.1f, %s=%.1f, %s=%s, %s=%.1f]",
+        return String.format(Locale.ENGLISH,
+                "%s : [%s=%d, %s=%s, %s=%.1f, %s=%.1f, %s=%.1f, %s=%.1f, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.Refrigerator.POWER_CONSUMPTION, powerConsumption,
                 SearchCriteria.Refrigerator.WEIGHT, weight,

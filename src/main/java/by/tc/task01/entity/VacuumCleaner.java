@@ -42,7 +42,8 @@ public class VacuumCleaner extends Appliance {
 
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%s, %s=%s, %s=%d, %s=%d, %s=%s, %s=%.1f]",
+        return String.format(Locale.ENGLISH,
+                "%s : [%s=%d, %s=%s, %s=%s, %s=%s, %s=%d, %s=%d, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.VacuumCleaner.POWER_CONSUMPTION, powerConsumption,
                 SearchCriteria.VacuumCleaner.FILTER_TYPE, filterType,

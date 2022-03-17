@@ -37,7 +37,8 @@ public class TabletPC extends Appliance {
 
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%s, %s=%s, %s=%.1f]",
+        return String.format(Locale.ENGLISH,
+                "%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%s, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.TabletPC.BATTERY_CAPACITY, batteryCapacity,
                 SearchCriteria.TabletPC.DISPLAY_INCHES, displayInches,

@@ -42,7 +42,8 @@ public class Laptop extends Appliance {
 
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH, "%s : [%s=%.1f, %s=%s, %s=%d, %s=%d, %s=%.1f, %s=%.1f, %s=%s, %s=%.1f]",
+        return String.format(Locale.ENGLISH,
+                "%s : [%s=%.1f, %s=%s, %s=%d, %s=%d, %s=%.1f, %s=%.1f, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.Laptop.BATTERY_CAPACITY, batteryCapacity,
                 SearchCriteria.Laptop.OS, os,

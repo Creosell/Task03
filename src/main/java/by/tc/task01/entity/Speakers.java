@@ -32,7 +32,8 @@ public class Speakers extends Appliance {
 
     @Override
     public String toString() {
-        return String.format(Locale.ENGLISH, "%s : [%s=%d, %s=%s, %s=%s, %s=%.1f, %s=%s, %s=%.1f]",
+        return String.format(Locale.ENGLISH,
+                "%s : [%s=%d, %s=%s, %s=%s, %s=%.1f, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 SearchCriteria.Speakers.POWER_CONSUMPTION, powerConsumption,
                 SearchCriteria.Speakers.NUMBER_OF_SPEAKERS, numberOfSpeakers,
