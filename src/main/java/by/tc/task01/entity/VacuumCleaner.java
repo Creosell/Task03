@@ -1,8 +1,7 @@
 package by.tc.task01.entity;
 
-import by.tc.task01.entity.criteria.SearchCriteria;
-
 import java.util.Locale;
+import java.util.Objects;
 
 public class VacuumCleaner extends Appliance {
     private String filterType;
@@ -10,6 +9,21 @@ public class VacuumCleaner extends Appliance {
     private String wandType;
     private int motorSpeedRegulation;
     private int cleaningWidth;
+
+    public VacuumCleaner(String manufacturer, double price, int powerConsumption, int weight, double height, double width) {
+        super(manufacturer, price, powerConsumption, weight, height, width);
+    }
+
+    public VacuumCleaner(String manufacturer, double price, int powerConsumption, int weight,
+                         double height, double width, String filterType, String bagType,
+                         String wandType, int motorSpeedRegulation, int cleaningWidth) {
+        super(manufacturer, price, powerConsumption, weight, height, width);
+        this.filterType = filterType;
+        this.bagType = bagType;
+        this.wandType = wandType;
+        this.motorSpeedRegulation = motorSpeedRegulation;
+        this.cleaningWidth = cleaningWidth;
+    }
 
     public void setFilterType(String filterType) {
         this.filterType = filterType;
@@ -36,13 +50,30 @@ public class VacuumCleaner extends Appliance {
         return String.format(Locale.ENGLISH,
                 "%s : [%s=%d, %s=%s, %s=%s, %s=%s, %s=%d, %s=%d, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
-                SearchCriteria.VacuumCleaner.POWER_CONSUMPTION, getPowerConsumption(),
-                SearchCriteria.VacuumCleaner.FILTER_TYPE, filterType,
-                SearchCriteria.VacuumCleaner.BAG_TYPE, bagType,
-                SearchCriteria.VacuumCleaner.WAND_TYPE, wandType,
-                SearchCriteria.VacuumCleaner.MOTOR_SPEED_REGULATION, motorSpeedRegulation,
-                SearchCriteria.VacuumCleaner.CLEANING_WIDTH, cleaningWidth,
-                SearchCriteria.VacuumCleaner.MANUFACTURER, getManufacturer(),
-                SearchCriteria.VacuumCleaner.PRICE, getPrice());
+                "POWER_CONSUMPTION", getPowerConsumption(),
+                "FILTER_TYPE", filterType,
+                "BAG_TYPE", bagType,
+                "WAND_TYPE", wandType,
+                "MOTOR_SPEED_REGULATION", motorSpeedRegulation,
+                "CLEANING_WIDTH", cleaningWidth,
+                "MANUFACTURER", getManufacturer(),
+                "PRICE", getPrice());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        VacuumCleaner that = (VacuumCleaner) o;
+        return motorSpeedRegulation == that.motorSpeedRegulation
+                && cleaningWidth == that.cleaningWidth
+                && Objects.equals(filterType, that.filterType)
+                && Objects.equals(bagType, that.bagType)
+                && Objects.equals(wandType, that.wandType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(filterType, bagType, wandType, motorSpeedRegulation, cleaningWidth);
     }
 }

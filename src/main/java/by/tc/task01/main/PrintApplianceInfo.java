@@ -6,10 +6,10 @@ import java.util.List;
 
 public class PrintApplianceInfo {
 
-    public static void print(List<Product> product) {
-        if (!product.isEmpty()) {
-            for (Product entity : product) {
-                System.out.println(entity.toString());
+    public static void print(List<Product> foundProductList) {
+        if (!foundProductList.isEmpty()) {
+            for (Product foundProduct : foundProductList) {
+                System.out.println(foundProduct.toString());
             }
             System.out.println();
         } else {

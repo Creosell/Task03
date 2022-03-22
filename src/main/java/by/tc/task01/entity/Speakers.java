@@ -1,13 +1,23 @@
 package by.tc.task01.entity;
 
-import by.tc.task01.entity.criteria.SearchCriteria;
-
 import java.util.Locale;
+import java.util.Objects;
 
 public class Speakers extends Multimedia {
     private int powerOutput;
     private int numberOfSpeakers;
     private double cordLength;
+
+    public Speakers(String manufacturer, double price, String frequencyRange) {
+        super(manufacturer, price, frequencyRange);
+    }
+
+    public Speakers(String manufacturer, double price, String frequencyRange, int powerOutput, int numberOfSpeakers, double cordLength) {
+        super(manufacturer, price, frequencyRange);
+        this.powerOutput = powerOutput;
+        this.numberOfSpeakers = numberOfSpeakers;
+        this.cordLength = cordLength;
+    }
 
     public void setPowerOutput(int powerOutput) {
         this.powerOutput = powerOutput;
@@ -26,11 +36,26 @@ public class Speakers extends Multimedia {
         return String.format(Locale.ENGLISH,
                 "%s : [%s=%d, %s=%s, %s=%s, %s=%.1f, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
-                SearchCriteria.Speakers.POWER_OUTPUT, powerOutput,
-                SearchCriteria.Speakers.NUMBER_OF_SPEAKERS, numberOfSpeakers,
-                SearchCriteria.Speakers.FREQUENCY_RANGE, getFrequencyRange(),
-                SearchCriteria.Speakers.CORD_LENGTH, cordLength,
-                SearchCriteria.Speakers.MANUFACTURER, getManufacturer(),
-                SearchCriteria.Speakers.PRICE, getPrice());
+                "POWER_OUTPUT", powerOutput,
+                "NUMBER_OF_SPEAKERS", numberOfSpeakers,
+                "FREQUENCY_RANGE", getFrequencyRange(),
+                "CORD_LENGTH", cordLength,
+                "MANUFACTURER", getManufacturer(),
+                "PRICE", getPrice());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Speakers speakers = (Speakers) o;
+        return powerOutput == speakers.powerOutput
+                && numberOfSpeakers == speakers.numberOfSpeakers
+                && Double.compare(speakers.cordLength, cordLength) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(powerOutput, numberOfSpeakers, cordLength);
     }
 }

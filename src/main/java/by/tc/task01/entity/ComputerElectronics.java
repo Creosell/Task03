@@ -1,9 +1,16 @@
 package by.tc.task01.entity;
 
-public class ComputerElectronics extends Product {
+public abstract class ComputerElectronics extends Product {
     private double batteryCapacity;
     private int memoryRom;
     private double displayInches;
+
+    public ComputerElectronics(String manufacturer, double price, double batteryCapacity, int memoryRom, double displayInches) {
+        super(manufacturer, price);
+        this.batteryCapacity = batteryCapacity;
+        this.memoryRom = memoryRom;
+        this.displayInches = displayInches;
+    }
 
     public double getBatteryCapacity() {
         return batteryCapacity;

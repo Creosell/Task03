@@ -1,12 +1,21 @@
 package by.tc.task01.entity;
 
-import by.tc.task01.entity.criteria.SearchCriteria;
-
 import java.util.Locale;
+import java.util.Objects;
 
 public class Oven extends Appliance {
     private int capacity;
     private int depth;
+
+    public Oven(String manufacturer, double price, int powerConsumption, int weight, double height, double width) {
+        super(manufacturer, price, powerConsumption, weight, height, width);
+    }
+
+    public Oven(String manufacturer, double price, int powerConsumption, int weight, double height, double width, int capacity, int depth) {
+        super(manufacturer, price, powerConsumption, weight, height, width);
+        this.capacity = capacity;
+        this.depth = depth;
+    }
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
@@ -21,13 +30,26 @@ public class Oven extends Appliance {
         return String.format(Locale.ENGLISH,
                 "%s : [%s=%d, %s=%s, %s=%d, %s=%d, %s=%.1f, %s=%.1f, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
-                SearchCriteria.Oven.POWER_CONSUMPTION, getPowerConsumption(),
-                SearchCriteria.Oven.WEIGHT, getWeight(),
-                SearchCriteria.Oven.CAPACITY, capacity,
-                SearchCriteria.Oven.DEPTH, depth,
-                SearchCriteria.Oven.HEIGHT, getHeight(),
-                SearchCriteria.Oven.WIDTH, getWidth(),
-                SearchCriteria.Oven.MANUFACTURER, getManufacturer(),
-                SearchCriteria.Oven.PRICE, getPrice());
+                "POWER_CONSUMPTION", getPowerConsumption(),
+                "WEIGHT", getWeight(),
+                "CAPACITY", capacity,
+                "DEPTH", depth,
+                "HEIGHT", getHeight(),
+                "WIDTH", getWidth(),
+                "MANUFACTURER", getManufacturer(),
+                "PRICE", getPrice());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Oven oven = (Oven) o;
+        return capacity == oven.capacity && depth == oven.depth;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(capacity, depth);
     }
 }

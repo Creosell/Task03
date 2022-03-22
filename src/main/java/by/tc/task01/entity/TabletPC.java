@@ -1,12 +1,21 @@
 package by.tc.task01.entity;
 
-import by.tc.task01.entity.criteria.SearchCriteria;
-
 import java.util.Locale;
+import java.util.Objects;
 
 public class TabletPC extends ComputerElectronics {
     private int flashMemoryCapacity;
     private String color;
+
+    public TabletPC(String manufacturer, double price, double batteryCapacity, int memoryRom, double displayInches) {
+        super(manufacturer, price, batteryCapacity, memoryRom, displayInches);
+    }
+
+    public TabletPC(String manufacturer, double price, double batteryCapacity, int memoryRom, double displayInches, int flashMemoryCapacity, String color) {
+        super(manufacturer, price, batteryCapacity, memoryRom, displayInches);
+        this.flashMemoryCapacity = flashMemoryCapacity;
+        this.color = color;
+    }
 
     public void setFlashMemoryCapacity(int flashMemoryCapacity) {
         this.flashMemoryCapacity = flashMemoryCapacity;
@@ -21,12 +30,25 @@ public class TabletPC extends ComputerElectronics {
         return String.format(Locale.ENGLISH,
                 "%s : [%s=%.1f, %s=%s, %s=%d, %s=%d, %s=%s, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
-                SearchCriteria.TabletPC.BATTERY_CAPACITY, getBatteryCapacity(),
-                SearchCriteria.TabletPC.DISPLAY_INCHES, getDisplayInches(),
-                SearchCriteria.TabletPC.MEMORY_ROM, getMemoryRom(),
-                SearchCriteria.TabletPC.FLASH_MEMORY_CAPACITY, flashMemoryCapacity,
-                SearchCriteria.TabletPC.COLOR, color,
-                SearchCriteria.TabletPC.MANUFACTURER, getManufacturer(),
-                SearchCriteria.TabletPC.PRICE, getPrice());
+                "BATTERY_CAPACITY", getBatteryCapacity(),
+                "DISPLAY_INCHES", getDisplayInches(),
+                "MEMORY_ROM", getMemoryRom(),
+                "FLASH_MEMORY_CAPACITY", flashMemoryCapacity,
+                "COLOR", color,
+                "MANUFACTURER", getManufacturer(),
+                "PRICE", getPrice());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TabletPC tabletPC = (TabletPC) o;
+        return flashMemoryCapacity == tabletPC.flashMemoryCapacity && Objects.equals(color, tabletPC.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(flashMemoryCapacity, color);
     }
 }

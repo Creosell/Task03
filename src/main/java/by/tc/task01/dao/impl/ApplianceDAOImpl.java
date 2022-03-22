@@ -1,10 +1,12 @@
 package by.tc.task01.dao.impl;
 
 import by.tc.task01.dao.ApplianceDAO;
+import by.tc.task01.dao.impl.builder.*;
 import by.tc.task01.entity.Product;
 import by.tc.task01.entity.criteria.Criteria;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,48 +20,50 @@ public class ApplianceDAOImpl implements ApplianceDAO {
     public List<Product> find(Criteria criteria) {
         List<Product> productList = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(Objects.requireNonNull(getClass().getResource("/appliances_db.txt")).getPath()))) {
+        try (BufferedReader fileReader = new BufferedReader(new FileReader(Objects.requireNonNull(getClass().getResource("/appliances_db.txt")).getPath()))) {
             int numberOfCriteria = criteria.getCriteria().size();
-            int counter;
+            int counterOfFoundCriteria;
 
-            while (reader.ready()) {
-                String line = reader.readLine();
-                counter = 0;
+            while (fileReader.ready()) {
+                String lineWithObjectParameters = fileReader.readLine();
+                counterOfFoundCriteria = 0;
 
-                if (line.matches(criteria.getGroupSearchName() + ".+")) {
-                    for (Map.Entry<String, Object> entry : criteria.getCriteria().entrySet()) {
-                        if (line.matches(".+" + entry.getKey() + "=" + entry.getValue().toString().toLowerCase() + "(|(,.+))")) {
-                            counter++;
+                if (lineWithObjectParameters.matches(criteria.getGroupSearchName() + ".+")) {
+                    for (Map.Entry<String, Object> criteriaMap : criteria.getCriteria().entrySet()) {
+                        if (lineWithObjectParameters.matches(".+" + criteriaMap.getKey() + "=" + criteriaMap.getValue().toString() + "(|(,.+))")) {
+                            counterOfFoundCriteria++;
                         }
-                        if (counter == numberOfCriteria) {
-                            productList.add(createObject(line, criteria.getGroupSearchName()));
+                        if (counterOfFoundCriteria == numberOfCriteria) {
+                            productList.add(createObject(lineWithObjectParameters, criteria.getGroupSearchName()));
                         }
                     }
                 }
             }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException("Can't get access to file appliances_db.txt or file not found.", e);
         } catch (IOException e) {
-            throw new RuntimeException("Unexpected error");
+            throw new RuntimeException("Exception while working with file appliances_db.txt", e);
         }
         return productList;
     }
 
-    private Product createObject(final String line, final String className) {
+    private Product createObject(final String lineWithObjectParameters, final String className) {
 
         switch (className) {
             case "Laptop":
-                return new LaptopBuilder().build(line);
+                return new LaptopBuilder(lineWithObjectParameters).build();
             case "Oven":
-                return new OvenBuilder().build(line);
+                return new OvenBuilder(lineWithObjectParameters).build();
             case "Refrigerator":
-                return new RefrigeratorBuilder().build(line);
+                return new RefrigeratorBuilder(lineWithObjectParameters).build();
             case "Speakers":
-                return new SpeakersBuilder().build(line);
+                return new SpeakersBuilder(lineWithObjectParameters).build();
             case "TabletPC":
-                return new TabletBuilder().build(line);
+                return new TabletPCBuilder(lineWithObjectParameters).build();
             case "VacuumCleaner":
-                return new VacuumCleanerBuilder().build(line);
+                return new VacuumCleanerBuilder(lineWithObjectParameters).build();
             default:
-                throw new RuntimeException("Error while creating object");
+                throw new RuntimeException("No builder can be called to create an object of product.");
         }
     }
 }
