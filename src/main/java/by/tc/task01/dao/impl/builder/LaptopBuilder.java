@@ -2,10 +2,10 @@ package by.tc.task01.dao.impl.builder;
 
 import by.tc.task01.entity.Laptop;
 
-public class LaptopBuilder extends ApplianceBuilder {
+public class LaptopBuilder extends ProductBuilder {
     private final String lineWithParameters;
 
-    public LaptopBuilder(String lineWithParameters) {
+    public LaptopBuilder(final String lineWithParameters) {
         this.lineWithParameters = lineWithParameters;
     }
 

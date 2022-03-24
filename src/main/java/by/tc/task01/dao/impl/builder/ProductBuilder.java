@@ -1,6 +1,6 @@
 package by.tc.task01.dao.impl.builder;
 
-public abstract class ApplianceBuilder {
+public abstract class ProductBuilder {
 
     public Object build() {
         return new Object();

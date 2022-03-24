@@ -2,10 +2,10 @@ package by.tc.task01.dao.impl.builder;
 
 import by.tc.task01.entity.Oven;
 
-public class OvenBuilder extends ApplianceBuilder {
+public class OvenBuilder extends ProductBuilder {
     private final String lineWithParameters;
 
-    public OvenBuilder(String lineWithParameters) {
+    public OvenBuilder(final String lineWithParameters) {
         this.lineWithParameters = lineWithParameters;
     }
 

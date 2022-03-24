@@ -2,11 +2,11 @@ package by.tc.task01.dao.impl.builder;
 
 import by.tc.task01.entity.VacuumCleaner;
 
-public class VacuumCleanerBuilder extends ApplianceBuilder {
+public class VacuumCleanerBuilder extends ProductBuilder {
     private final String lineWithParameters;
 
 
-    public VacuumCleanerBuilder(String lineWithParameters) {
+    public VacuumCleanerBuilder(final String lineWithParameters) {
         this.lineWithParameters = lineWithParameters;
     }
 

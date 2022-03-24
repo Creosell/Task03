@@ -17,15 +17,15 @@ import java.util.Objects;
 public class ApplianceDAOImpl implements ApplianceDAO {
 
     @Override
-    public List<Product> find(Criteria criteria) {
+    public List<Product> find(final Criteria criteria) {
         List<Product> productList = new ArrayList<>();
 
-        try (BufferedReader fileReader = new BufferedReader(new FileReader(Objects.requireNonNull(getClass().getResource("/appliances_db.txt")).getPath()))) {
+        try (BufferedReader dbFileReader = new BufferedReader(new FileReader(Objects.requireNonNull(getClass().getResource("/appliances_db.txt")).getPath()))) {
             int numberOfUserCriteria = criteria.getCriteria().size();
             int foundCriteria;
 
-            while (fileReader.ready()) {
-                String lineWithObjectParameters = fileReader.readLine();
+            while (dbFileReader.ready()) {
+                String lineWithObjectParameters = dbFileReader.readLine();
                 foundCriteria = 0;
 
                 if (lineWithObjectParameters.matches(criteria.getGroupSearchName() + ".+")) {

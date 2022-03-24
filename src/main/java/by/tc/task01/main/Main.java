@@ -1,6 +1,7 @@
 package by.tc.task01.main;
 
 import by.tc.task01.entity.Product;
+import by.tc.task01.entity.Speakers;
 import by.tc.task01.entity.VacuumCleaner;
 import by.tc.task01.entity.criteria.Criteria;
 import by.tc.task01.entity.criteria.SearchCriteria;
@@ -53,12 +54,24 @@ public class Main {
         //////////////////////////////////////////////////////////////////
 
         Criteria criteriaVacuumCleaner = new Criteria(VacuumCleaner.class.getSimpleName());
-        criteriaVacuumCleaner.add(SearchCriteria.VacuumCleaner.FILTER_TYPE.toString(),"C");
-        criteriaVacuumCleaner.add(SearchCriteria.VacuumCleaner.CLEANING_WIDTH.toString(),30);
-        criteriaVacuumCleaner.add(SearchCriteria.VacuumCleaner.POWER_CONSUMPTION.toString(),90);
+        criteriaVacuumCleaner.add(SearchCriteria.VacuumCleaner.FILTER_TYPE.toString(), "C");
+        criteriaVacuumCleaner.add(SearchCriteria.VacuumCleaner.CLEANING_WIDTH.toString(), 30);
+        criteriaVacuumCleaner.add(SearchCriteria.VacuumCleaner.POWER_CONSUMPTION.toString(), 90);
 
         product = service.find(criteriaVacuumCleaner);
 
         PrintApplianceInfo.print(product);
+
+        //////////////////////////////////////////////////////////////////
+
+        Criteria criteriaSpeakers = new Criteria(Speakers.class.getSimpleName());
+        criteriaSpeakers.add(SearchCriteria.Speakers.POWER_OUTPUT.toString(), 20);
+
+        product = service.find(criteriaSpeakers);
+
+        PrintApplianceInfo.print(product);
+
+        //////////////////////////////////////////////////////////////////
+
     }
 }

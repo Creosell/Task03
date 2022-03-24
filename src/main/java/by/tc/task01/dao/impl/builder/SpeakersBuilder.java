@@ -2,10 +2,10 @@ package by.tc.task01.dao.impl.builder;
 
 import by.tc.task01.entity.Speakers;
 
-public class SpeakersBuilder extends ApplianceBuilder {
+public class SpeakersBuilder extends ProductBuilder {
     private final String lineWithParameters;
 
-    public SpeakersBuilder(String lineWithParameters) {
+    public SpeakersBuilder(final String lineWithParameters) {
         this.lineWithParameters = lineWithParameters;
     }
 
