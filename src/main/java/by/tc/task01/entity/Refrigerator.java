@@ -1,11 +1,15 @@
 package by.tc.task01.entity;
 
+import java.io.Serializable;
 import java.util.Locale;
 import java.util.Objects;
 
-public class Refrigerator extends Appliance {
+public class Refrigerator extends Appliance implements Serializable {
     private double freezerCapacity;
     private double overallCapacity;
+
+    public Refrigerator() {
+    }
 
     public Refrigerator(String manufacturer, double price, int powerConsumption, int weight, double height, double width) {
         super(manufacturer, price, powerConsumption, weight, height, width);

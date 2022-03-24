@@ -1,14 +1,18 @@
 package by.tc.task01.entity;
 
+import java.io.Serializable;
 import java.util.Locale;
 import java.util.Objects;
 
-public class VacuumCleaner extends Appliance {
+public class VacuumCleaner extends Appliance implements Serializable {
     private String filterType;
     private String bagType;
     private String wandType;
     private int motorSpeedRegulation;
     private int cleaningWidth;
+
+    public VacuumCleaner() {
+    }
 
     public VacuumCleaner(String manufacturer, double price, int powerConsumption, int weight, double height, double width) {
         super(manufacturer, price, powerConsumption, weight, height, width);

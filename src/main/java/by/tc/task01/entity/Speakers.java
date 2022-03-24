@@ -1,12 +1,16 @@
 package by.tc.task01.entity;
 
+import java.io.Serializable;
 import java.util.Locale;
 import java.util.Objects;
 
-public class Speakers extends Multimedia {
+public class Speakers extends Multimedia implements Serializable {
     private int powerOutput;
     private int numberOfSpeakers;
     private double cordLength;
+
+    public Speakers() {
+    }
 
     public Speakers(String manufacturer, double price, String frequencyRange) {
         super(manufacturer, price, frequencyRange);

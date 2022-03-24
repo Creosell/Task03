@@ -1,12 +1,16 @@
 package by.tc.task01.entity;
 
+import java.io.Serializable;
 import java.util.Locale;
 import java.util.Objects;
 
-public class Laptop extends ComputerElectronics {
+public class Laptop extends ComputerElectronics implements Serializable {
     private String os;
     private int systemMemory;
     private double cpu;
+
+    public Laptop() {
+    }
 
     public Laptop(String manufacturer, double price, double batteryCapacity, int memoryRom, double displayInches) {
         super(manufacturer, price, batteryCapacity, memoryRom, displayInches);

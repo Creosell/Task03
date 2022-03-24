@@ -1,11 +1,15 @@
 package by.tc.task01.entity;
 
+import java.io.Serializable;
 import java.util.Locale;
 import java.util.Objects;
 
-public class TabletPC extends ComputerElectronics {
+public class TabletPC extends ComputerElectronics implements Serializable {
     private int flashMemoryCapacity;
     private String color;
+
+    public TabletPC() {
+    }
 
     public TabletPC(String manufacturer, double price, double batteryCapacity, int memoryRom, double displayInches) {
         super(manufacturer, price, batteryCapacity, memoryRom, displayInches);

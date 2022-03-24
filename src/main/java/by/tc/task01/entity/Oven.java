@@ -1,11 +1,15 @@
 package by.tc.task01.entity;
 
+import java.io.Serializable;
 import java.util.Locale;
 import java.util.Objects;
 
-public class Oven extends Appliance {
+public class Oven extends Appliance implements Serializable {
     private int capacity;
     private int depth;
+
+    public Oven() {
+    }
 
     public Oven(String manufacturer, double price, int powerConsumption, int weight, double height, double width) {
         super(manufacturer, price, powerConsumption, weight, height, width);
