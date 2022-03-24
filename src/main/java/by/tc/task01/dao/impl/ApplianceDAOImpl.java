@@ -36,7 +36,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
                             foundCriteria++;
                         }
                         if (foundCriteria == numberOfUserCriteria) {
-                            productList.add(createObject(lineWithObjectParameters, criteria.getGroupSearchName()));
+                            productList.add(createObject(lineWithObjectParameters, targetClassName));
                         }
                     }
                 }
