@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class CriteriaValidator {
 
-    public static boolean validateCriteria(Criteria criteria) {
+    public static boolean validateUserCriteria(Criteria criteria) {
         int numberOfUserCriteria = criteria.getCriteria().size();
         String targetClassName = criteria.getGroupSearchName();
         Set<String> userSearchCriteriaSet = criteria.getCriteria().keySet();

@@ -13,7 +13,7 @@ public class ApplianceServiceImpl implements ApplianceService {
 
     @Override
     public List<Product> find(Criteria criteria) {
-        if (!CriteriaValidator.validateCriteria(criteria)) {
+        if (!CriteriaValidator.validateUserCriteria(criteria)) {
             throw new RuntimeException("User's search criteria did not pass the validation.");
         }
 
