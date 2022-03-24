@@ -1,5 +1,6 @@
 package by.tc.task01.main;
 
+import by.tc.task01.entity.Laptop;
 import by.tc.task01.entity.Product;
 import by.tc.task01.entity.Speakers;
 import by.tc.task01.entity.VacuumCleaner;
@@ -72,6 +73,13 @@ public class Main {
         PrintApplianceInfo.print(product);
 
         //////////////////////////////////////////////////////////////////
+
+        Criteria criteriaLaptop = new Criteria(Laptop.class.getSimpleName());
+        criteriaLaptop.add(SearchCriteria.Laptop.MANUFACTURER.toString(), "Asus");
+
+        product = service.find(criteriaLaptop);
+
+        PrintApplianceInfo.print(product);
 
     }
 }

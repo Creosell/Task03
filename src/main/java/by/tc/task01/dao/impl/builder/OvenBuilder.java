@@ -2,6 +2,8 @@ package by.tc.task01.dao.impl.builder;
 
 import by.tc.task01.entity.Oven;
 
+import java.util.Objects;
+
 public class OvenBuilder extends ProductBuilder {
     private final String lineWithParameters;
 
@@ -20,11 +22,12 @@ public class OvenBuilder extends ProductBuilder {
         double width = Double.parseDouble(parameters[5]);
         Oven oven = new Oven(manufacturer, price, powerConsumption, weight, height, width);
 
-        if (parameters[2] != null && parameters[3] != null) {
+        if (!Objects.requireNonNull(parameters[2]).equals("null")) {
             oven.setCapacity(Integer.parseInt(parameters[2]));
+        }
+        if (!Objects.requireNonNull(parameters[3]).equals("null")) {
             oven.setDepth(Integer.parseInt(parameters[3]));
         }
-
         return oven;
     }
 }

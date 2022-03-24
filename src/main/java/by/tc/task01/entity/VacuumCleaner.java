@@ -5,9 +5,9 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class VacuumCleaner extends Appliance implements Serializable {
-    private String filterType;
-    private String bagType;
-    private String wandType;
+    private String filterType = "Unknown";
+    private String bagType = "Unknown";
+    private String wandType = "Unknown";
     private int motorSpeedRegulation;
     private int cleaningWidth;
 

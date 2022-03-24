@@ -5,7 +5,7 @@ import java.util.Locale;
 import java.util.Objects;
 
 public class Laptop extends ComputerElectronics implements Serializable {
-    private String os;
+    private String os = "Unknown";
     private int systemMemory;
     private double cpu;
 

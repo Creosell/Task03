@@ -5,15 +5,15 @@ import by.tc.task01.entity.criteria.SearchCriteria;
 
 import java.util.Set;
 
-public class Validator {
+public class CriteriaValidator {
 
-    public static boolean criteriaValidator(Criteria criteria) {
+    public static boolean validateCriteria(Criteria criteria) {
         int numberOfUserCriteria = criteria.getCriteria().size();
         String targetClassName = criteria.getGroupSearchName();
-        Set<String> setOfUserSearchCriteria = criteria.getCriteria().keySet();
+        Set<String> userSearchCriteriaSet = criteria.getCriteria().keySet();
         int foundCriteria = 0;
 
-        for (String currentCriteria : setOfUserSearchCriteria) {
+        for (String currentCriteria : userSearchCriteriaSet) {
             for (Class<?> currentEnum : SearchCriteria.class.getClasses()) {
                 if (currentEnum.getSimpleName().equals(targetClassName)) {
                     if (checkForMatchesInEnum(currentEnum, currentCriteria)) {

@@ -2,9 +2,10 @@ package by.tc.task01.dao.impl.builder;
 
 import by.tc.task01.entity.VacuumCleaner;
 
+import java.util.Objects;
+
 public class VacuumCleanerBuilder extends ProductBuilder {
     private final String lineWithParameters;
-
 
     public VacuumCleanerBuilder(final String lineWithParameters) {
         this.lineWithParameters = lineWithParameters;
@@ -21,11 +22,21 @@ public class VacuumCleanerBuilder extends ProductBuilder {
         double width = Double.parseDouble(parameters[3]);
         VacuumCleaner vacuumCleaner = new VacuumCleaner(manufacturer, price, powerConsumption, weight, height, width);
 
-        vacuumCleaner.setFilterType(parameters[4]);
-        vacuumCleaner.setBagType(parameters[5]);
-        vacuumCleaner.setWandType(parameters[6]);
-        vacuumCleaner.setMotorSpeedRegulation(Integer.parseInt(parameters[7]));
-        vacuumCleaner.setCleaningWidth(Integer.parseInt(parameters[8]));
+        if (!Objects.requireNonNull(parameters[4]).equals("null")) {
+            vacuumCleaner.setFilterType(parameters[4]);
+        }
+        if (!Objects.requireNonNull(parameters[5]).equals("null")) {
+            vacuumCleaner.setBagType(parameters[5]);
+        }
+        if (!Objects.requireNonNull(parameters[6]).equals("null")) {
+            vacuumCleaner.setWandType(parameters[6]);
+        }
+        if (!Objects.requireNonNull(parameters[7]).equals("null")) {
+            vacuumCleaner.setMotorSpeedRegulation(Integer.parseInt(parameters[7]));
+        }
+        if (!Objects.requireNonNull(parameters[8]).equals("null")) {
+            vacuumCleaner.setCleaningWidth(Integer.parseInt(parameters[8]));
+        }
         return vacuumCleaner;
     }
 }

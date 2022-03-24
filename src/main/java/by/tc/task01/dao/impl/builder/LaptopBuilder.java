@@ -2,13 +2,14 @@ package by.tc.task01.dao.impl.builder;
 
 import by.tc.task01.entity.Laptop;
 
+import java.util.Objects;
+
 public class LaptopBuilder extends ProductBuilder {
     private final String lineWithParameters;
 
     public LaptopBuilder(final String lineWithParameters) {
         this.lineWithParameters = lineWithParameters;
     }
-
 
     @Override
     public Laptop build() {
@@ -20,12 +21,15 @@ public class LaptopBuilder extends ProductBuilder {
         double displayInches = Double.parseDouble(parameters[5]);
         Laptop laptop = new Laptop(manufacturer, price, batteryCapacity, memoryRom, displayInches);
 
-        if (parameters[1] != null && parameters[3] != null && parameters[4] != null) {
+        if (!Objects.requireNonNull(parameters[1]).equals("null")) {
             laptop.setOs(parameters[1]);
+        }
+        if (!Objects.requireNonNull(parameters[3]).equals("null")) {
             laptop.setSystemMemory(Integer.parseInt(parameters[3]));
+        }
+        if (!Objects.requireNonNull(parameters[4]).equals("null")) {
             laptop.setCpu(Double.parseDouble(parameters[4]));
         }
-
         return laptop;
     }
 }

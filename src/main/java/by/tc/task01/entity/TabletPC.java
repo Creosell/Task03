@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class TabletPC extends ComputerElectronics implements Serializable {
     private int flashMemoryCapacity;
-    private String color;
+    private String color = "Unknown";
 
     public TabletPC() {
     }

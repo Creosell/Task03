@@ -2,6 +2,8 @@ package by.tc.task01.dao.impl.builder;
 
 import by.tc.task01.entity.Refrigerator;
 
+import java.util.Objects;
+
 public class RefrigeratorBuilder extends ProductBuilder {
     private final String lineWithParameters;
 
@@ -20,11 +22,12 @@ public class RefrigeratorBuilder extends ProductBuilder {
         double width = Double.parseDouble(parameters[5]);
         Refrigerator refrigerator = new Refrigerator(manufacturer, price, powerConsumption, weight, height, width);
 
-        if (parameters[2] != null && parameters[3] != null) {
+        if (!Objects.requireNonNull(parameters[2]).equals("null")) {
             refrigerator.setFreezerCapacity(Double.parseDouble(parameters[2]));
+        }
+        if (!Objects.requireNonNull(parameters[3]).equals("null")) {
             refrigerator.setOverallCapacity(Double.parseDouble(parameters[3]));
         }
-
         return refrigerator;
     }
 }
