@@ -8,7 +8,7 @@ import java.util.Set;
 public class Validator {
 
     public static boolean criteriaValidator(Criteria criteria) {
-        int numberOfNeededCriteria = criteria.getCriteria().size();
+        int numberOfUserCriteria = criteria.getCriteria().size();
         String targetClassName = criteria.getGroupSearchName();
         Set<String> setOfUserSearchCriteria = criteria.getCriteria().keySet();
         int foundCriteria = 0;
@@ -22,7 +22,7 @@ public class Validator {
                 }
             }
         }
-        return foundCriteria == numberOfNeededCriteria;
+        return foundCriteria == numberOfUserCriteria;
     }
 
     private static boolean checkForMatchesInEnum(Class<?> currentEnum, String currentCriteria) {

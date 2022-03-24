@@ -21,7 +21,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
         List<Product> productList = new ArrayList<>();
 
         try (BufferedReader fileReader = new BufferedReader(new FileReader(Objects.requireNonNull(getClass().getResource("/appliances_db.txt")).getPath()))) {
-            int numberOfNeededCriteria = criteria.getCriteria().size();
+            int numberOfUserCriteria = criteria.getCriteria().size();
             int foundCriteria;
 
             while (fileReader.ready()) {
@@ -33,7 +33,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
                         if (lineWithObjectParameters.matches(".+" + criteriaMap.getKey() + "=" + criteriaMap.getValue().toString() + "(|(,.+))")) {
                             foundCriteria++;
                         }
-                        if (foundCriteria == numberOfNeededCriteria) {
+                        if (foundCriteria == numberOfUserCriteria) {
                             productList.add(createObject(lineWithObjectParameters, criteria.getGroupSearchName()));
                         }
                     }
