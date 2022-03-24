@@ -1,7 +1,5 @@
 package by.tc.task01.entity;
 
-import java.util.Map;
-
 public abstract class Product {
     private String manufacturer;
     private double price;
@@ -25,10 +23,6 @@ public abstract class Product {
 
     public void setPrice(double price) {
         this.price = price;
-    }
-
-    public Map<Object, Object> getProductAsMap() {
-        return null;
     }
 }
 
