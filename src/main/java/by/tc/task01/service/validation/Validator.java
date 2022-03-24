@@ -3,25 +3,36 @@ package by.tc.task01.service.validation;
 import by.tc.task01.entity.criteria.Criteria;
 import by.tc.task01.entity.criteria.SearchCriteria;
 
+import java.util.Set;
+
 public class Validator {
 
     public static boolean criteriaValidator(Criteria criteria) {
-        int counter = 0;
-        int numberOfCriteria = criteria.getCriteria().size();
+        int numberOfNeededCriteria = criteria.getCriteria().size();
+        String targetClassName = criteria.getGroupSearchName();
+        Set<String> setOfUserSearchCriteria = criteria.getCriteria().keySet();
+        int foundCriteria = 0;
 
-        for (String s : criteria.getCriteria().keySet()) {
-            loop:
-            for (Class<?> aClass : SearchCriteria.class.getClasses()) {
-                for (Object enumConstant : aClass.getEnumConstants()) {
-                    if (aClass.getSimpleName().equals(criteria.getGroupSearchName()) && s.equals(enumConstant.toString())) {
-                        counter++;
-                        break loop;
+        for (String currentCriteria : setOfUserSearchCriteria) {
+            for (Class<?> currentEnum : SearchCriteria.class.getClasses()) {
+                if (currentEnum.getSimpleName().equals(targetClassName)) {
+                    if (checkForMatchesInEnum(currentEnum, currentCriteria)) {
+                        foundCriteria++;
                     }
                 }
             }
         }
-        return counter == numberOfCriteria;
+        return foundCriteria == numberOfNeededCriteria;
+    }
+
+    private static boolean checkForMatchesInEnum(Class<?> currentEnum, String currentCriteria) {
+        boolean result = false;
+
+        for (Object enumParameter : currentEnum.getEnumConstants()) {
+            if (currentCriteria.equals(enumParameter.toString())) {
+                result = true;
+            }
+        }
+        return result;
     }
 }
-
-//you may add your own new classes

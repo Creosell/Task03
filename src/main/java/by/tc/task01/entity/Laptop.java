@@ -1,7 +1,6 @@
 package by.tc.task01.entity;
 
 import java.util.Locale;
-import java.util.Map;
 import java.util.Objects;
 
 public class Laptop extends ComputerElectronics {
@@ -61,5 +60,4 @@ public class Laptop extends ComputerElectronics {
     public int hashCode() {
         return Objects.hash(os, systemMemory, cpu);
     }
-
 }

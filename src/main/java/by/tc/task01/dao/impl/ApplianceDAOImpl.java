@@ -21,19 +21,19 @@ public class ApplianceDAOImpl implements ApplianceDAO {
         List<Product> productList = new ArrayList<>();
 
         try (BufferedReader fileReader = new BufferedReader(new FileReader(Objects.requireNonNull(getClass().getResource("/appliances_db.txt")).getPath()))) {
-            int numberOfCriteria = criteria.getCriteria().size();
-            int counterOfFoundCriteria;
+            int numberOfNeededCriteria = criteria.getCriteria().size();
+            int foundCriteria;
 
             while (fileReader.ready()) {
                 String lineWithObjectParameters = fileReader.readLine();
-                counterOfFoundCriteria = 0;
+                foundCriteria = 0;
 
                 if (lineWithObjectParameters.matches(criteria.getGroupSearchName() + ".+")) {
                     for (Map.Entry<String, Object> criteriaMap : criteria.getCriteria().entrySet()) {
                         if (lineWithObjectParameters.matches(".+" + criteriaMap.getKey() + "=" + criteriaMap.getValue().toString() + "(|(,.+))")) {
-                            counterOfFoundCriteria++;
+                            foundCriteria++;
                         }
-                        if (counterOfFoundCriteria == numberOfCriteria) {
+                        if (foundCriteria == numberOfNeededCriteria) {
                             productList.add(createObject(lineWithObjectParameters, criteria.getGroupSearchName()));
                         }
                     }

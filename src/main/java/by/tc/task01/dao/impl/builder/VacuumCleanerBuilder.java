@@ -13,22 +13,19 @@ public class VacuumCleanerBuilder extends ApplianceBuilder {
     @Override
     public VacuumCleaner build() {
         String[] parameters = findParameters(lineWithParameters);
-        String manufacturer = parameters[6];
-        double price = Double.parseDouble(parameters[7]);
+        String manufacturer = parameters[9];
+        double price = Double.parseDouble(parameters[10]);
         int powerConsumption = Integer.parseInt(parameters[0]);
         int weight = Integer.parseInt(parameters[1]);
         double height = Double.parseDouble(parameters[2]);
         double width = Double.parseDouble(parameters[3]);
         VacuumCleaner vacuumCleaner = new VacuumCleaner(manufacturer, price, powerConsumption, weight, height, width);
 
-        vacuumCleaner.setPowerConsumption(Integer.parseInt(parameters[0]));
-        vacuumCleaner.setFilterType(parameters[1]);
-        vacuumCleaner.setBagType(parameters[2]);
-        vacuumCleaner.setWandType(parameters[3]);
-        vacuumCleaner.setMotorSpeedRegulation(Integer.parseInt(parameters[4]));
-        vacuumCleaner.setCleaningWidth(Integer.parseInt(parameters[5]));
-        vacuumCleaner.setManufacturer(parameters[6]);
-        vacuumCleaner.setPrice(Double.parseDouble(parameters[7]));
+        vacuumCleaner.setFilterType(parameters[4]);
+        vacuumCleaner.setBagType(parameters[5]);
+        vacuumCleaner.setWandType(parameters[6]);
+        vacuumCleaner.setMotorSpeedRegulation(Integer.parseInt(parameters[7]));
+        vacuumCleaner.setCleaningWidth(Integer.parseInt(parameters[8]));
         return vacuumCleaner;
     }
 }
