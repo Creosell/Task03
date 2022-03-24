@@ -14,7 +14,7 @@ public class ApplianceServiceImpl implements ApplianceService {
     @Override
     public List<Product> find(Criteria criteria) {
         if (!Validator.criteriaValidator(criteria)) {
-            return null;
+            throw new RuntimeException("User's search criteria did not pass the validation.");
         }
 
         DAOFactory factory = DAOFactory.getInstance();

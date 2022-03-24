@@ -19,16 +19,18 @@ public class ApplianceDAOImpl implements ApplianceDAO {
     @Override
     public List<Product> find(final Criteria criteria) {
         List<Product> productList = new ArrayList<>();
+        String dbPath = Objects.requireNonNull(getClass().getResource("/appliances_db.txt")).getPath();
 
-        try (BufferedReader dbFileReader = new BufferedReader(new FileReader(Objects.requireNonNull(getClass().getResource("/appliances_db.txt")).getPath()))) {
+        try (BufferedReader dbFileReader = new BufferedReader(new FileReader(dbPath))) {
             int numberOfUserCriteria = criteria.getCriteria().size();
             int foundCriteria;
+            String targetClassName = criteria.getGroupSearchName();
 
             while (dbFileReader.ready()) {
                 String lineWithObjectParameters = dbFileReader.readLine();
                 foundCriteria = 0;
 
-                if (lineWithObjectParameters.matches(criteria.getGroupSearchName() + ".+")) {
+                if (lineWithObjectParameters.matches(targetClassName + ".+")) {
                     for (Map.Entry<String, Object> criteriaMap : criteria.getCriteria().entrySet()) {
                         if (lineWithObjectParameters.matches(".+" + criteriaMap.getKey() + "=" + criteriaMap.getValue().toString() + "(|(,.+))")) {
                             foundCriteria++;
