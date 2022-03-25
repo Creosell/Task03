@@ -24,7 +24,7 @@ public class Main {
 
         //////////////////////////////////////////////////////////////////
 
-        Criteria criteriaOven = new Criteria(Oven.class.getSimpleName());//"Oven"
+        Criteria criteriaOven = new Criteria(Oven.class.getSimpleName());
         criteriaOven.add(Oven.CAPACITY.toString(), 3);
 
         product = service.find(criteriaOven);
@@ -48,7 +48,7 @@ public class Main {
         criteriaTabletPC.add(TabletPC.DISPLAY_INCHES.toString(), 14);
         criteriaTabletPC.add(TabletPC.MEMORY_ROM.toString(), 8000);
 
-        product = service.find(criteriaTabletPC);// find(Object...obj) changed object to Tablet PC
+        product = service.find(criteriaTabletPC);
 
         PrintApplianceInfo.print(product);
 

@@ -6,7 +6,7 @@ public abstract class ProductBuilder {
         return new Object();
     }
 
-    public String[] findParameters(final String lineWithObjectParameters) {
+    String[] findParameters(final String lineWithObjectParameters) {
         char[] charArrayFromLine = lineWithObjectParameters.toCharArray();
         StringBuilder stringBuilder = new StringBuilder();
 
