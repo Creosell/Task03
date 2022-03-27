@@ -31,6 +31,7 @@ public class CriteriaValidator {
         for (Object enumParameter : currentEnum.getEnumConstants()) {
             if (currentCriteria.equals(enumParameter.toString())) {
                 result = true;
+                break;
             }
         }
         return result;
