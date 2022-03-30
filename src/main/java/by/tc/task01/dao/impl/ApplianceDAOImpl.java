@@ -32,7 +32,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 
                 if (lineWithObjectParameters.matches(targetClassName + ".+")) {
                     for (Map.Entry<String, Object> criteriaMap : criteria.getCriteria().entrySet()) {
-                        if (findMatchesInString(lineWithObjectParameters, criteriaMap)) {
+                        if (findMatchesInLine(lineWithObjectParameters, criteriaMap)) {
                             foundCriteria++;
                         }
                         if (foundCriteria == numberOfUserCriteria) {
@@ -69,10 +69,10 @@ public class ApplianceDAOImpl implements ApplianceDAO {
         }
     }
 
-    private boolean findMatchesInString(String lineWithObjectParameters, Map.Entry<String, Object> criteriaMap) {
-        return lineWithObjectParameters.matches(".+"
-                + criteriaMap.getKey() + "="
-                + criteriaMap.getValue().toString() + "(|(,.+))");
+    private boolean findMatchesInLine(final String lineWithObjectParameters, final Map.Entry<String, Object> criteriaMap) {
+        return lineWithObjectParameters.matches(".+" +
+                criteriaMap.getKey() + "=" +
+                criteriaMap.getValue().toString() + "(|(,.+))");
     }
 }
 

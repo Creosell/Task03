@@ -21,8 +21,16 @@ public class Refrigerator extends Appliance implements Serializable {
         this.overallCapacity = overallCapacity;
     }
 
+    public double getFreezerCapacity() {
+        return freezerCapacity;
+    }
+
     public void setFreezerCapacity(double freezerCapacity) {
         this.freezerCapacity = freezerCapacity;
+    }
+
+    public double getOverallCapacity() {
+        return overallCapacity;
     }
 
     public void setOverallCapacity(double overallCapacity) {
@@ -36,8 +44,8 @@ public class Refrigerator extends Appliance implements Serializable {
                 this.getClass().getSimpleName(),
                 "POWER_CONSUMPTION", getPowerConsumption(),
                 "WEIGHT", getWeight(),
-                "FREEZER_CAPACITY", freezerCapacity,
-                "OVERALL_CAPACITY", overallCapacity,
+                "FREEZER_CAPACITY", getFreezerCapacity(),
+                "OVERALL_CAPACITY", getOverallCapacity(),
                 "HEIGHT", getHeight(),
                 "WIDTH", getWidth(),
                 "MANUFACTURER", getManufacturer(),

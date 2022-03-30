@@ -21,8 +21,16 @@ public class Oven extends Appliance implements Serializable {
         this.depth = depth;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public int getDepth() {
+        return depth;
     }
 
     public void setDepth(int depth) {
@@ -36,8 +44,8 @@ public class Oven extends Appliance implements Serializable {
                 this.getClass().getSimpleName(),
                 "POWER_CONSUMPTION", getPowerConsumption(),
                 "WEIGHT", getWeight(),
-                "CAPACITY", capacity,
-                "DEPTH", depth,
+                "CAPACITY", getCapacity(),
+                "DEPTH", getDepth(),
                 "HEIGHT", getHeight(),
                 "WIDTH", getWidth(),
                 "MANUFACTURER", getManufacturer(),

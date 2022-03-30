@@ -29,20 +29,40 @@ public class VacuumCleaner extends Appliance implements Serializable {
         this.cleaningWidth = cleaningWidth;
     }
 
+    public String getFilterType() {
+        return filterType;
+    }
+
     public void setFilterType(String filterType) {
         this.filterType = filterType;
+    }
+
+    public String getBagType() {
+        return bagType;
     }
 
     public void setBagType(String bagType) {
         this.bagType = bagType;
     }
 
+    public String getWandType() {
+        return wandType;
+    }
+
     public void setWandType(String wandType) {
         this.wandType = wandType;
     }
 
+    public int getMotorSpeedRegulation() {
+        return motorSpeedRegulation;
+    }
+
     public void setMotorSpeedRegulation(int motorSpeedRegulation) {
         this.motorSpeedRegulation = motorSpeedRegulation;
+    }
+
+    public int getCleaningWidth() {
+        return cleaningWidth;
     }
 
     public void setCleaningWidth(int cleaningWidth) {
@@ -55,11 +75,11 @@ public class VacuumCleaner extends Appliance implements Serializable {
                 "%s : [%s=%d, %s=%s, %s=%s, %s=%s, %s=%d, %s=%d, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 "POWER_CONSUMPTION", getPowerConsumption(),
-                "FILTER_TYPE", filterType,
-                "BAG_TYPE", bagType,
-                "WAND_TYPE", wandType,
-                "MOTOR_SPEED_REGULATION", motorSpeedRegulation,
-                "CLEANING_WIDTH", cleaningWidth,
+                "FILTER_TYPE", getFilterType(),
+                "BAG_TYPE", getBagType(),
+                "WAND_TYPE", getWandType(),
+                "MOTOR_SPEED_REGULATION", getMotorSpeedRegulation(),
+                "CLEANING_WIDTH", getCleaningWidth(),
                 "MANUFACTURER", getManufacturer(),
                 "PRICE", getPrice());
     }

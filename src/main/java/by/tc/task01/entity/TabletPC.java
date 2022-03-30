@@ -21,8 +21,16 @@ public class TabletPC extends ComputerElectronics implements Serializable {
         this.color = color;
     }
 
+    public int getFlashMemoryCapacity() {
+        return flashMemoryCapacity;
+    }
+
     public void setFlashMemoryCapacity(int flashMemoryCapacity) {
         this.flashMemoryCapacity = flashMemoryCapacity;
+    }
+
+    public String getColor() {
+        return color;
     }
 
     public void setColor(String color) {
@@ -37,8 +45,8 @@ public class TabletPC extends ComputerElectronics implements Serializable {
                 "BATTERY_CAPACITY", getBatteryCapacity(),
                 "DISPLAY_INCHES", getDisplayInches(),
                 "MEMORY_ROM", getMemoryRom(),
-                "FLASH_MEMORY_CAPACITY", flashMemoryCapacity,
-                "COLOR", color,
+                "FLASH_MEMORY_CAPACITY", getFlashMemoryCapacity(),
+                "COLOR", getColor(),
                 "MANUFACTURER", getManufacturer(),
                 "PRICE", getPrice());
     }

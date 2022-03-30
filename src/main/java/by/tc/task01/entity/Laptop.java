@@ -23,12 +23,24 @@ public class Laptop extends ComputerElectronics implements Serializable {
         this.cpu = cpu;
     }
 
+    public String getOs() {
+        return os;
+    }
+
     public void setOs(String os) {
         this.os = os;
     }
 
+    public int getSystemMemory() {
+        return systemMemory;
+    }
+
     public void setSystemMemory(int systemMemory) {
         this.systemMemory = systemMemory;
+    }
+
+    public double getCpu() {
+        return cpu;
     }
 
     public void setCpu(double cpu) {
@@ -41,10 +53,10 @@ public class Laptop extends ComputerElectronics implements Serializable {
                 "%s : [%s=%.1f, %s=%s, %s=%d, %s=%d, %s=%.1f, %s=%.1f, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
                 "BATTERY_CAPACITY", getBatteryCapacity(),
-                "OS", os,
+                "OS", getOs(),
                 "MEMORY_ROM", getMemoryRom(),
-                "SYSTEM_MEMORY", systemMemory,
-                "CPU", cpu,
+                "SYSTEM_MEMORY", getSystemMemory(),
+                "CPU", getCpu(),
                 "DISPLAY_INCHES", getDisplayInches(),
                 "MANUFACTURER", getManufacturer(),
                 "PRICE", getPrice());

@@ -80,6 +80,5 @@ public class Main {
         product = service.find(criteriaLaptop);
 
         PrintApplianceInfo.print(product);
-
     }
 }

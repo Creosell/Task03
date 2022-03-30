@@ -23,12 +23,24 @@ public class Speakers extends Multimedia implements Serializable {
         this.cordLength = cordLength;
     }
 
+    public int getPowerOutput() {
+        return powerOutput;
+    }
+
     public void setPowerOutput(int powerOutput) {
         this.powerOutput = powerOutput;
     }
 
+    public int getNumberOfSpeakers() {
+        return numberOfSpeakers;
+    }
+
     public void setNumberOfSpeakers(int numberOfSpeakers) {
         this.numberOfSpeakers = numberOfSpeakers;
+    }
+
+    public double getCordLength() {
+        return cordLength;
     }
 
     public void setCordLength(double cordLength) {
@@ -40,10 +52,10 @@ public class Speakers extends Multimedia implements Serializable {
         return String.format(Locale.ENGLISH,
                 "%s : [%s=%d, %s=%s, %s=%s, %s=%.1f, %s=%s, %s=%.1f]",
                 this.getClass().getSimpleName(),
-                "POWER_OUTPUT", powerOutput,
-                "NUMBER_OF_SPEAKERS", numberOfSpeakers,
+                "POWER_OUTPUT", getPowerOutput(),
+                "NUMBER_OF_SPEAKERS", getNumberOfSpeakers(),
                 "FREQUENCY_RANGE", getFrequencyRange(),
-                "CORD_LENGTH", cordLength,
+                "CORD_LENGTH", getCordLength(),
                 "MANUFACTURER", getManufacturer(),
                 "PRICE", getPrice());
     }
