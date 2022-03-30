@@ -42,7 +42,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
                 }
             }
         } catch (FileNotFoundException e) {
-            throw new RuntimeException("Can't get access to file appliances_db.txt or file not found.", e);
+            throw new RuntimeException("Can't get access to file appliances_db.txt or file not found", e);
         } catch (IOException e) {
             throw new RuntimeException("Exception while working with file appliances_db.txt", e);
         }
