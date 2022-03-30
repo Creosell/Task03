@@ -32,7 +32,7 @@ public class ApplianceDAOImpl implements ApplianceDAO {
 
                 if (lineWithObjectParameters.matches(targetClassName + ".+")) {
                     for (Map.Entry<String, Object> criteriaMap : criteria.getCriteria().entrySet()) {
-                        if (lineWithObjectParameters.matches(".+" + criteriaMap.getKey() + "=" + criteriaMap.getValue().toString() + "(|(,.+))")) {
+                        if (findMatchesInString(lineWithObjectParameters, criteriaMap)) {
                             foundCriteria++;
                         }
                         if (foundCriteria == numberOfUserCriteria) {
@@ -67,6 +67,12 @@ public class ApplianceDAOImpl implements ApplianceDAO {
             default:
                 throw new RuntimeException("No builder can be called to create an object of product.");
         }
+    }
+
+    private boolean findMatchesInString(String lineWithObjectParameters, Map.Entry<String, Object> criteriaMap) {
+        return lineWithObjectParameters.matches(".+"
+                + criteriaMap.getKey() + "="
+                + criteriaMap.getValue().toString() + "(|(,.+))");
     }
 }
 
