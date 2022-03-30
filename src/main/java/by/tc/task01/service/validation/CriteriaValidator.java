@@ -16,7 +16,7 @@ public class CriteriaValidator {
         for (String currentCriteria : userSearchCriteriaSet) {
             for (Class<?> currentEnum : SearchCriteria.class.getClasses()) {
                 if (currentEnum.getSimpleName().equals(targetClassName)) {
-                    if (checkForMatchesInEnum(currentEnum, currentCriteria)) {
+                    if (findMatchesInEnum(currentEnum, currentCriteria)) {
                         foundCriteria++;
                     }
                 }
@@ -25,7 +25,7 @@ public class CriteriaValidator {
         return foundCriteria == numberOfUserCriteria;
     }
 
-    private static boolean checkForMatchesInEnum(Class<?> currentEnum, String currentCriteria) {
+    private static boolean findMatchesInEnum(Class<?> currentEnum, String currentCriteria) {
         boolean result = false;
 
         for (Object enumParameter : currentEnum.getEnumConstants()) {
